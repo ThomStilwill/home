@@ -20,6 +20,13 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\content\css\" />
+    <Folder Include="wwwroot\content\js\" />
+    <Folder Include="wwwroot\content\img\" />
+    <Folder Include="wwwroot\content\font\" />
+  </ItemGroup>
+
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

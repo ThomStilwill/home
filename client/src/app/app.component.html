@@ -1,0 +1,42 @@
+<div class="theme-light">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="/">App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+          <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" routerLink="/home">
+              <span class="ui-icon ui-icon-home"></span> Home
+            </a>
+          </li>
+
+          <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" routerLink="/weather">
+              <span class="ui-icon ui-icon-lightbulb"></span> Weather
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div id="content" class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <button id="themeButton" class="navbar-right icon-button glyphicon-adjust"></button>
+    </div>
+    <div class="footer-center">ver @version</div>
+    <div class="footer-right">&#169; @DateTime.Now.Year Thom Stilwill</div>
+
+  </footer>
+</div>
