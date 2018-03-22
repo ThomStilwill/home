@@ -1,15 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit  } from '@angular/core';
+import {Observable} from 'rxjs/Rx';
+import * as  moment from 'moment/moment';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
+  time: string;
+  day: string;
+  date: string;
+  seconds: string;
+  meridiem: string;
 
-  constructor() { }
-
+  constructor() {
+  }
+  
   ngOnInit() {
+    let timer = Observable.timer(0,500);
+    timer.subscribe(() => this.setTime());
   }
 
+  setTime(){
+
+    let datetime = moment();
+    this.time = datetime.format("h:mm");
+    this.meridiem = datetime.format("a").toLowerCase();
+    this.day = datetime.format("dddd");
+    this.date = datetime.format("MMMM Do, YYYY");
+    this.seconds = datetime.second().toString();
+
+    // let secondWidth = Math.floor(width / 60);
+    // let spacer = (second * secondWidth);
+
+    // this.spacerDiv.width(spacer  + "px");
+    // this.tickDiv.width(secondWidth*2);
+    // this.tickDiv.height(secondWidth*2);
+    // this.secondsDiv.height(secondWidth);
+
+  };
 }

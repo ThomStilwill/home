@@ -21,7 +21,7 @@ header
 
   .navbar{
 
-    margin: 10px;
+    margin: 5px;
 
   }
 
@@ -29,13 +29,6 @@ header
   #search
   {
     width:300px;
-    /*
-    .form-group
-    {
-      width:100%;
-      margin:0px 0 0 0;
-    }
-        */
   }
 }
 
@@ -46,6 +39,7 @@ header
     top: $headerHeight;
     bottom: $footerHeight;
     width: 100%;
+    max-width: 100%;
     margin: 0 0 10px 0;
     padding: 0 10px;
 }

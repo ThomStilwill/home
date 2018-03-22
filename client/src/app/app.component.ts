@@ -20,6 +20,9 @@ export class AppComponent implements OnInit {
     private titleService: Title
   ) {}
 
+  version: string = '2.0.0';
+  year: number = 2018;
+
   ngOnInit() {
     this.router.events
       .filter((event) => event instanceof NavigationEnd)
