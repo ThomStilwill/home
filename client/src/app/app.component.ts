@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     private titleService: Title
   ) {}
 
+  search: string;
   version: string = '2.0.0';
   year: number = 2018;
 
@@ -34,5 +35,9 @@ export class AppComponent implements OnInit {
       .filter((route) => route.outlet === 'primary')
       .mergeMap((route) => route.data)
       .subscribe((event) => this.titleService.setTitle(event['title']));
+  }
+
+  onSubmit(){
+    console.log(this.search);
   }
 }

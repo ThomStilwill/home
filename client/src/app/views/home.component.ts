@@ -39,6 +39,6 @@ export class HomeComponent implements OnInit {
     // this.tickDiv.width(secondWidth*2);
     // this.tickDiv.height(secondWidth*2);
     // this.secondsDiv.height(secondWidth);
-
   };
+
 }
