@@ -1,14 +1,12 @@
 
 #links{
   float: right;
-  width:50%;
+  width:40%;
   ul{
     padding-right: 1em;
-    margin-left: 2em;
+    padding-left: 0;
     list-style: none;
-
     li{
-
       line-height: 2em;
       text-align: right;
       &:nth-of-type(odd)
@@ -41,64 +39,43 @@
   }
 }
 
-#calendar{
-
-    margin-top:2em;
-
-  >iframe{
-    display:block;
-    margin: 0 auto;
-
-  }
-}
-
 .clock{
+  
   float:left;
-  padding: 0 0.5em;
-  width: 40%;
-  color:      #5e5e5e;
 
-  .meridiem,
+  width: 45%;
+  color: #5e5e5e;
+
   .time{
-    font-size: 4.5em;
     line-height: 1em;
-    
   }
 
-  .seconds{
-    font-size: 2em;
-    line-height: 1em;
-    
-  }
+  .seconds-progress{
+    margin-top: 1.3em;
+    width: 100%;
+    padding: 0;
+    height: 10px;
+    .pre {
+      float:left;
+      width: 50%;
+      min-height: 100%;
+      background-color: navy;
+    }
 
-  #seconds{
-    height:0px;
-    border: 0px dotted black;
-    margin: 0 0 20px 0;
+    .post {
+      float:left;
+      width: 50%;
+      min-height: 100%;
+      background-color: gold;
+    }
   }
 
   .day{
-    margin-right:30%;
-    line-height: 1em;
-    font-size: 2em;
+    width: 70%;
+    line-height: 2.0em;
   }
 
   .date{
-    margin-top: 10px;
-    line-height: 1em;
-    font-size: 2em;
-
+    line-height: 2.0em;
   }
-}
-
-
-#spacer{
-  display:inline-block;
-}
-
-#tick{
-  display:inline-block;
-  width:10px;
-  height:10px;
-  background-color: navy;
 }

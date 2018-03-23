@@ -1,9 +1,16 @@
 <div class="clock">
-  <span class="time">{{time}}</span> <span class="seconds">:{{seconds}}</span> <span class="meridiem">{{meridiem}}</span>
-  <!-- <div id="seconds"><span id="spacer"></span><span id="tick"></span></div> -->
+  <div class="time" fittext>{{time}} {{meridiem}}</div> 
+
+  <div class="seconds-progress">
+    <div class="pre" [style.width.%]="seconds/60*100"></div>
+    <div class="post"[style.width.%]="100-(seconds/60*100)"></div>
+  </div>
+  
   <div>&nbsp; </div>
-  <div class="day">{{day}}</div>
-  <div class="date">{{date}}</div>
+  <div class="day">
+    <div fittext>{{day}}</div>
+  </div>
+  <div class="date" fittext>{{date}}</div>
 </div>
 
 <div id="links">
