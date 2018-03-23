@@ -1,0 +1,13 @@
+@import "~font-awesome/scss/_variables";
+@import "~font-awesome/scss/_mixins";
+@import "~font-awesome/scss/_icons";
+
+@mixin icon($icon) {
+    @include fa-icon;
+    @extend .fa-#{$icon};
+  }
+
+.icon-brand:before {
+    @include icon(check-circle);
+    color: gold;
+}
