@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.search);
+    let url = "https://www.google.com/search?q=" + this.search;
+    window.open(url, "_blank");
   }
 }

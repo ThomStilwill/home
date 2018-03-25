@@ -43,17 +43,19 @@
   float:left;
   width: 45%;
   color: #5e5e5e;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
 
   .time{
     line-height: 1em;
-    border: 1px solid red;
+    padding-bottom: 0.2em;
+    //border: 1px solid red;
   }
 
   .seconds-progress{
-    margin-top: 1.7em;
     width: 100%;
     padding: 0;
     height: 10px;
+
     .pre {
       float:left;
       width: 50%;
@@ -70,11 +72,14 @@
   }
 
   .day{
-    width: 70%;
-    line-height: 2.2em;
+    //border: 1px solid blue;
+    line-height: 1em;
+    padding-bottom: 0.2em;
+    
   }
 
   .date{
-    line-height: 2.2em;
+    //border: 1px solid green;
+    line-height: 1em;
   }
 }

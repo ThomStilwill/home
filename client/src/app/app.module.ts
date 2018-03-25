@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +21,7 @@ import { ViewNotFoundComponent } from "./views/view-not-found.component"
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AngularFittextModule,
     NgbModule.forRoot()

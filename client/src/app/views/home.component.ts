@@ -31,14 +31,5 @@ export class HomeComponent implements OnInit {
     this.day = datetime.format("dddd");
     this.date = datetime.format("MMMM Do, YYYY");
     this.seconds = datetime.second().toString();
-
-    // let secondWidth = Math.floor(width / 60);
-    // let spacer = (second * secondWidth);
-
-    // this.spacerDiv.width(spacer  + "px");
-    // this.tickDiv.width(secondWidth*2);
-    // this.tickDiv.height(secondWidth*2);
-    // this.secondsDiv.height(secondWidth);
   };
-
 }
