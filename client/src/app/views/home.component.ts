@@ -1,11 +1,14 @@
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import * as  moment from 'moment/moment';
+import { LinkService } from "../services/link.service";
+import { Link } from "../services/link";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [LinkService]
 })
 
 export class HomeComponent implements OnInit {
@@ -14,13 +17,15 @@ export class HomeComponent implements OnInit {
   date: string;
   seconds: string;
   meridiem: string;
+  links: Array<Link>;
 
-  constructor() {
+  constructor(private linkService: LinkService) {
   }
   
   ngOnInit() {
     let timer = Observable.timer(0,500);
     timer.subscribe(() => this.setTime());
+    this.links = this.linkService.getLinks();
   }
 
   setTime(){

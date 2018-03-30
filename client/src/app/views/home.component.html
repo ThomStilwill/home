@@ -12,8 +12,11 @@
 
 <div id="links">
   <ul>
-      <li><a href="https://www.eversource.com/clp/outage/outagemap.aspx" target="_blank">EverSource Outages</a></li>
-      <li><a href="http://www.intellicast.com/Local/Weather.aspx?location=USCT0169" target="_blank">Weather</a></li>
+
+      <li *ngFor="let link of links">
+        <a href="{{link.href}}" target="_blank">{{link.title}}</a>
+      </li>
+
       <li><a href="http://www.wfsb.com" target="_blank">News</a></li>
       <li><a href="http://www.movies.com/movie-times/06062-movie-times" target="_blank">Movies</a></li>
       <li><a href="http://www.plainvillect.com" target="_blank">Town Hall</a></li>
