@@ -5,10 +5,13 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { BsDropdownModule, CollapseModule  } from 'ngx-bootstrap';
 import { AngularFittextModule } from 'angular-fittext';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from "./../environments/environment"
+
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
-
-//import { LinkService } from "./services/link.service";
 
 import { HomeComponent } from './views/home.component';
 import { WeatherComponent } from './views/weather.component';
@@ -22,6 +25,9 @@ import { ViewNotFoundComponent } from "./views/view-not-found.component"
     ViewNotFoundComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
