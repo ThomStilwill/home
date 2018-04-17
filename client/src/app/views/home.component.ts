@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import * as  moment from 'moment/moment';
-import { LinkService } from "../services/link.service";
-import { Link } from "../services/link";
+import { LinkService } from '../services/link.service';
+import { Link } from '../services/link';
 
 @Component({
   selector: 'app-home',
@@ -15,26 +15,26 @@ export class HomeComponent implements OnInit {
   time: string;
   day: string;
   date: string;
-  seconds: string;
+  seconds: number;
   meridiem: string;
   links: Array<Link>;
 
   constructor(private linkService: LinkService) {
   }
-  
+
   ngOnInit() {
-    let timer = Observable.timer(0,500);
+    const timer = Observable.timer(0, 500);
     timer.subscribe(() => this.setTime());
     this.links = this.linkService.getLinks();
   }
 
-  setTime(){
+  setTime() {
 
-    let datetime = moment();
-    this.time = datetime.format("h:mm");
-    this.meridiem = datetime.format("a").toLowerCase();
-    this.day = datetime.format("dddd");
-    this.date = datetime.format("MMMM Do, YYYY");
-    this.seconds = datetime.second().toString();
+    const datetime = moment();
+    this.time = datetime.format('h:mm');
+    this.meridiem = datetime.format('a').toLowerCase();
+    this.day = datetime.format('dddd');
+    this.date = datetime.format('MMMM Do, YYYY');
+    this.seconds = datetime.second();
   };
 }
