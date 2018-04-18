@@ -1,3 +1,7 @@
-<p>
-  weather works!
-</p>
+<ul>
+    <div *ngFor="let course of coursesObservable | async">
+
+      <p>{{course}}</p>
+
+    </div>
+</ul>

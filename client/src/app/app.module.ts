@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 
-import { BsDropdownModule, CollapseModule  } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule, AlertModule  } from 'ngx-bootstrap';
 import { AngularFittextModule } from 'angular-fittext';
 
 import { AngularFireModule } from 'angularfire2';
@@ -33,7 +33,8 @@ import { ViewNotFoundComponent } from './views/view-not-found.component';
     AppRoutingModule,
     AngularFittextModule,
     BsDropdownModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    AlertModule.forRoot()
   ],
   providers: [Title],
   bootstrap: [AppComponent]

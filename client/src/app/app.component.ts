@@ -13,7 +13,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 })
 
 export class AppComponent implements OnInit {
-  
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
       .subscribe((event) => this.titleService.setTitle(event['title']));
   }
 
-  onSubmit(){
-    let url = "https://www.google.com/search?q=" + this.search;
-    window.open(url, "_blank");
+  onSubmit() {
+    const url = 'https://www.google.com/search?q=' + this.search;
+    window.open(url, '_blank');
   }
 }
