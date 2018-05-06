@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
 import * as  moment from 'moment/moment';
 import { LinkService } from '../services/link.service';
 import { Link } from '../services/link';
@@ -36,5 +36,5 @@ export class HomeComponent implements OnInit {
     this.day = datetime.format('dddd');
     this.date = datetime.format('MMMM Do, YYYY');
     this.seconds = datetime.second();
-  };
+  }
 }
