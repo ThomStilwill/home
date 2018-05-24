@@ -1,0 +1,15 @@
+<label [ngClass]="{'error': control && control.errors}">
+  <span>{{label}}</span>
+  <input type="textbox"
+         placeholder="{{placeholder}}"
+         [value]="_value"
+         (input)="onChange($event.target.value)"
+         (keyup)="onChange($event.target.value)">
+
+  <div *ngIf="control && control.errors">
+    <div *ngFor="let key of keys">
+      <p *ngIf="control.errors[key]">{{messages[key]}}</p>
+    </div>
+  </div>
+</label>
+

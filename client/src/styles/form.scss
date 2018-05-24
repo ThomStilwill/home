@@ -1,0 +1,32 @@
+label{
+
+  vertical-align: top;
+  span{
+    display: inline-block;
+    text-align: right;
+    padding: 3px;
+    width: 76px;
+    font-weight: bold;
+  }
+  input{
+    margin-left: 4px;
+    border-radius: 6px;
+    padding: 3px 5px;
+    font-family: inherit;
+    border: 1px solid rgb(94,94,94)
+  }
+  p{
+    margin: 0;
+    margin-top: 3px;
+    margin-left: 84px;
+  }
+}
+
+label.error{
+  input{
+    border-color: red;
+  }
+  p{
+    color: red;
+  }
+}

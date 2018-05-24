@@ -1,0 +1,13 @@
+<h3>Edit</h3>
+
+<form [formGroup]="logform" (submit)="submit(logform)">
+  <input-text formControlName="mileage" label="Mileage" [validationMessages]="validationMessages"></input-text>
+  <input-text formControlName="event" label="Event" [validationMessages]="validationMessages"></input-text>
+  <input-text formControlName="note" label="Note" [validationMessages]="validationMessages"></input-text>
+
+  <br/>
+  <button type="button" (click)="cancel()">Cancel</button>
+  <button type="submit">Save</button>
+</form>
+
+<p>{{logform.value | json}}</p>

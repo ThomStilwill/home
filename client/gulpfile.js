@@ -21,7 +21,7 @@ gulp.task('build', function (cb) {
 })
 
 gulp.task('deploy',function(){
-  return gulp.src('./dist/**/*',{read: false})
-          .pipe(cleanDest('\\\\MARS\\nodeweb\\home\**\*.*'))
-          //.pipe(gulp.dest('\\\\MARS\\nodeweb\\home'))
+  return gulp.src('./dist/**/*')
+          .pipe(cleanDest('\\\\MARS\\nodeweb\\home'))
+          .pipe(gulp.dest('\\\\MARS\\nodeweb\\home'))
 })
