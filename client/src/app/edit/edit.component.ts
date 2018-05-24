@@ -5,17 +5,17 @@ import { InputTextComponent } from '../components/input-text.component';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'edit-text',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
   logform: FormGroup;
-  validationMessages = {
-    event: {required: 'Need event'},
-    note: { required: 'Need note'}
-  };
+  validationMessages = {};
+  // {
+  //   event: {required: 'Need event'},
+  //   note: { required: 'Need note'}
+  // };
 
   constructor( private router: Router,
                private route: ActivatedRoute,
@@ -27,9 +27,9 @@ export class EditComponent implements OnInit {
   createForm() {
     this.logform = this.fb.group({
         id: [''],
-        event: ['', Validators.required],
+        event: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
         mileage: ['', Validators.required],
-        note: ['', Validators.required]
+        note: ['', Validators.compose([Validators.required, Validators.maxLength(14)])]
     });
   }
 

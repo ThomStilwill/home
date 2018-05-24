@@ -22,7 +22,10 @@ export class ValidationMessagesComponent implements OnInit {
     const controlMessages = this.validationMessages[this.controlName] || {};
 
     this.defaultMessages = {
-      required: `${this.label} is required.`
+      required: `${this.label} is required.`,
+      pattern:  `${this.label} is invalid.`,
+      minlength:  `${this.label} is too short.`,
+      maxlength:  `${this.label} is too long.`
     };
 
     const messages = {...this.defaultMessages, ...controlMessages};

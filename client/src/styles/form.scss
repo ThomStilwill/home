@@ -16,7 +16,11 @@ label{
     border-radius: 6px;
     padding: 3px 5px;
     font-family: inherit;
-    border: 1px solid rgb(94,94,94)
+    border: 1px solid rgb(94,94,94);
+    &:focus{
+     outline:none;
+     background-color: #eee;
+    }
   }
   p{
     margin: 0;

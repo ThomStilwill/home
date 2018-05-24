@@ -17,7 +17,7 @@ export class InputTextComponent
 
     @Input() label: string;
     @Input() placeholder: string;
-    @Input() validationMessages: object;
+    @Input() validationMessages: object = {};
 
     control: AbstractControl;
 
