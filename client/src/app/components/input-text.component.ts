@@ -19,9 +19,6 @@ export class InputTextComponent
     @Input() placeholder: string;
     @Input() validationMessages: object;
 
-    messages: {};
-    keys: string[];
-
     control: AbstractControl;
 
     constructor (controlContainer: ControlContainer) {
@@ -39,11 +36,5 @@ export class InputTextComponent
             console.warn('Missing FormControlName');
         }
 
-        if (this.validationMessages) {
-            this.messages = this.validationMessages[this.formControlName] || {};
-            this.keys = Object.keys(this.messages);
-        }
     }
-
-
 }

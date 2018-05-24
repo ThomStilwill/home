@@ -1,0 +1,42 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
+
+@Component({
+  selector: 'validation-messages',
+  templateUrl: './validation-messages.component.html'
+})
+export class ValidationMessagesComponent implements OnInit {
+
+  @Input() validationMessages: object;
+  @Input() label: string;
+  @Input() controlName: string;
+  @Input() control: AbstractControl;
+
+  private defaultMessages: object;
+  messages: {};
+  keys: string[];
+
+
+  setValidation() {
+
+    const controlMessages = this.validationMessages[this.controlName] || {};
+
+    this.defaultMessages = {
+      required: `${this.label} is required.`
+    };
+
+    const messages = {...this.defaultMessages, ...controlMessages};
+
+
+    if (messages) {
+      this.messages = messages;
+      this.keys = Object.keys(this.messages);
+    }
+  }
+
+
+  ngOnInit() {
+    this.setValidation();
+  }
+
+}

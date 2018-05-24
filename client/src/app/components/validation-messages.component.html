@@ -1,0 +1,5 @@
+<div *ngIf="control && control.errors">
+  <div *ngFor="let key of keys">
+    <p *ngIf="control.errors[key]">{{messages[key]}}</p>
+  </div>
+</div>

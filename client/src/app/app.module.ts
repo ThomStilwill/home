@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 
 import { AbstractValueAccessor } from './components/abstract-value-accessor';
+import { ValidationMessagesComponent } from './components/validation-messages.component';
 import { InputTextComponent } from './components/input-text.component';
 
 import { AppRoutingModule } from './app.routing.module';
@@ -28,6 +29,7 @@ import { EditComponent } from './edit/edit.component';
     WeatherComponent,
     ViewNotFoundComponent,
     InputTextComponent,
+    ValidationMessagesComponent,
     EditComponent
   ],
   imports: [

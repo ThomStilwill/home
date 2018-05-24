@@ -6,10 +6,5 @@
          (input)="onChange($event.target.value)"
          (keyup)="onChange($event.target.value)">
 
-  <div *ngIf="control && control.errors">
-    <div *ngFor="let key of keys">
-      <p *ngIf="control.errors[key]">{{messages[key]}}</p>
-    </div>
-  </div>
+  <validation-messages controlName="{{formControlName}}" [control]="control" label="{{label}}" [validationMessages]="validationMessages"></validation-messages>
 </label>
-
