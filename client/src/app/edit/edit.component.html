@@ -6,8 +6,11 @@
   <input-text formControlName="note" label="Note" [validationMessages]="validationMessages"></input-text>
 
   <br/>
-  <button type="button" (click)="cancel()">Cancel</button>
-  <button type="submit">Save</button>
+  <div class="btn-group">
+    <button type="button" (click)="cancel()">Cancel</button>
+    <button type="submit" >Save</button>
+  </div>
 </form>
 
+<br/>
 <p>{{logform.value | json}}</p>

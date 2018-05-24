@@ -1,6 +1,9 @@
+@import "~bootstrap/scss/bootstrap";
+
 label{
 
   vertical-align: top;
+  width: 100%;
   span{
     display: inline-block;
     text-align: right;
@@ -29,4 +32,13 @@ label.error{
   p{
     color: red;
   }
+}
+
+button{
+  @extend .btn;
+  width: 80px;
+}
+
+button[type=submit]{
+  @extend .btn-primary;
 }
