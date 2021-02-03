@@ -38,7 +38,28 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(cors());
   app.use(compression());
-  app.use(helmet());
+  //app.use(helmet());
+
+  // app.use(
+  //   helmet.contentSecurityPolicy({
+  //     directives: {
+  //       defaultSrc: ['self'],
+  //       fontSrc: [
+  //         'self',
+  //         'https://fonts.gstatic.com'
+  //       ],
+  //       styleSrc: [
+  //         'self',
+  //         'https://fonts.googleapis.com'
+  //       ],
+  //       scriptSrc: ['self'],
+  //       imgSrc: ['self']
+
+  //     },
+  //     reportOnly: true
+  //   })
+  // );
+
 
   // api routes
   app.use('/users', require('./users/users.controller'));
