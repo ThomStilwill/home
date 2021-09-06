@@ -1,18 +1,21 @@
 {
   "links-home":
       [
+      {"href":"https://www.wunderground.com/weather/us/ct/plainville/06062", "name":"Weather Underground"},
+      {"href":"https://darksky.net/forecast/41.6734,-72.8608/us12/en", "name":"Darkskys"},
       {"href":"https://www.eversource.com/clp/outage/outagemap.aspx", "name":"Power Outages"},
-      {"href":"https://darksky.net/forecast/41.6734,-72.8608/us12/en", "name":"Weather"},
+      {"divider":"yes"},
       {"href":"http://www.wfsb.com", "name":"WFSB Channel 3"},
       {"href":"https://fox61.com/", "name":"Foxnews 61"},
       {"href":"https://news360.com/home", "name":"News 360"},
-      {"href":"https://www.amctheatres.com/movie-theatres/plainville/amc-plainville-20", "name":"Movies"},
       {"href":"http://www.plainvillect.com", "name":"Town Hall"},
       {"href":"http://www.plainvilleschools.org/", "name":"Schools"},
       {"divider":"yes"},
+      {"href":"https://www.amctheatres.com/movie-theatres/plainville/amc-plainville-20", "name":"AMC Theater"},
       {"href":"http://www.amazon.com", "name":"Amazon"},
       {"href":"http://www.netflix.com", "name":"Netflix"},
       {"href":"http://www.hulu.com", "name":"Hulu"},
+      {"href":"http://www.hbomax.com", "name":"HboMax"},
       {"href":"http://online.tivo.com", "name":"Tivo"}
     ],
     "links-google": [
