@@ -2,3 +2,7 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "material-override";
 
+.fit {
+    display: inline-block;
+    white-space: nowrap;
+}

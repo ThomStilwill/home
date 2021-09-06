@@ -18,6 +18,7 @@ export class LinksComponent implements OnInit, AfterViewInit {
 
   values = [
     { id: 'https://forecast7.com/en/41d68n72d86/plainville/', name: 'Plainville, CT' },
+    { id: 'https://forecast7.com/en/42d38n76d87/watkins-glen/', name: 'Watkins Glen, NY' },
     { id: 'https://forecast7.com/en/44d84n93d30/bloomington/', name: 'Bloomington, MN' },
     { id: 'https://forecast7.com/en/35d37n119d02/bakersfield/', name: 'Bakersfield, CA' },
     { id: 'https://forecast7.com/en/29d42n98d49/san-antonio/', name: 'San Antonio, TX' },

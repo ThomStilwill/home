@@ -43,21 +43,27 @@
   bottom:0px ;
   left:0;
   right:0;
-  height:197px;
+  // height:197px;
   text-align: center;
   overflow: hidden;
+
+  mat-form-field {
+    margin-bottom: 0;
+  }
 }
 
 #clock{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   float:left;
   border: 0px dotted #e7e7e7;
   padding: 1em;
-  width: 58%;
+  width: 40%;
   color: #5e5e5e;
 
   #time{
     font-size: 4em;
     line-height: 1em;
+    color:goldenrod;
   }
 
   #seconds{
@@ -72,6 +78,7 @@
   #date{
     margin-top: 10px;
     line-height: 1em;
+    color: rgb(17,72,138);
   }
 
   #spacer{
