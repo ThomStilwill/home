@@ -16,6 +16,7 @@ import { LinksComponent } from './view/links/links.component';
 import { WorkComponent } from './view/work/work.component';
 import { PlayComponent } from './view/play/play.component';
 import { DataService } from './services/data.service';
+import { PingComponent } from './view/ping/ping.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DataService } from './services/data.service';
     AppComponent,
     LinksComponent,
     WorkComponent,
-    PlayComponent
+    PlayComponent,
+    PingComponent
   ],
   imports: [
     AppConfigModule,

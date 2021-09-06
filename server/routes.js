@@ -13,7 +13,7 @@ module.exports = function(app) {
 		virtualDirPath = '/' + virtualDirPath;
   }
 
-  var clientPath = process.env.NODE_ENV === 'production' ? '../' : '../dist/client' ;
+  var clientPath = process.env.NODE_ENV === 'production' ? '../' : '../dist/' ;
   var webpath = path.join(__dirname, clientPath);
   var dbpath = path.join(__dirname, 'db.json');
 
