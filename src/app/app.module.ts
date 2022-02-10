@@ -5,38 +5,28 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogConfig } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfigModule } from './app-config.module';
-
+import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './features/home/home.module';
+import { CoreModule } from '@angular/flex-layout';
+import { DataService } from './shared/services/data.service';
 import { AppComponent } from './app.component';
-import { LinksComponent } from './view/links/links.component';
-import { WorkComponent } from './view/work/work.component';
-import { PlayComponent } from './view/play/play.component';
-import { DataService } from './services/data.service';
-import { PingComponent } from './view/ping/ping.component';
-
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LinksComponent,
-    WorkComponent,
-    PlayComponent,
-    PingComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     AppConfigModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule
+    CoreModule,
+    HomeModule,
+    AppRoutingModule,
+    SharedModule.forRoot()
   ],
   providers: [ DataService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS,

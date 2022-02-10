@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
 import { first } from 'rxjs/operators';
-import { Link } from 'src/app/models/link';
+import { Link } from 'src/app/shared/models/link';
+import { DataService } from 'src/app/shared/services/data.service';
 
 declare var fitty: any;
 

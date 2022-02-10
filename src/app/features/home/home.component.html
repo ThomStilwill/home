@@ -1,0 +1,69 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav-content fxLayout="column">
+
+  <header>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <h2 [routerLink]="['home']">{{title}}</h2>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <ul fxLayout fxLayoutGap="2px">
+            <li><button mat-button [matMenuTriggerFor]="homeMenu" routerLinkActive="active-link">Home</button></li>
+            <li><button mat-button [matMenuTriggerFor]="googleMenu">Google</button></li>
+            <li><button mat-button [matMenuTriggerFor]="managementMenu">Coding</button></li>
+            <li><button mat-button [matMenuTriggerFor]="networkMenu">Network</button></li>
+        </ul>
+      </div>
+      <div>
+        <form ngNoForm  role="search" method="get" action="http://www.google.com/search" target="_blank">
+          <mat-form-field appearance="fill">
+            <input matInput name="q" type="search" results="5" autosave="AutoSaveValue" placeholder="Search" class="">
+          </mat-form-field>
+        </form>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <div class="footer-left"> Load complete. </div>
+  <div class="footer-center">ver {{version}}</div>
+  <div class="footer-right">&#169; {{copyrightYear}} Thom Stilwill</div>
+</footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<mat-menu #homeMenu="matMenu">
+  <a mat-menu-item [routerLink]="['work']">Work</a>
+  <a mat-menu-item [routerLink]="['play']">Play</a>
+  <a mat-menu-item [routerLink]="['ping']">Ping</a>
+</mat-menu>
+
+<mat-menu #googleMenu="matMenu">
+  <a *ngFor="let link of googleLinks">
+    <a mat-menu-item target="_blank" href="{{link.href}}">{{link.name}}</a>
+  </a>
+</mat-menu>
+
+<mat-menu #managementMenu="matMenu">
+    <a mat-menu-item href="https://www1.domain.com/controlpanel/foundation/#/" target="_blank">Domain.com</a>
+    <a mat-menu-item href="https://www.networksolutions.com" target="_blank">Network Solutions</a>
+    <a mat-menu-item href="https://portal.azure.com/#home" target="_blank">Azure Portal</a>
+    <a mat-menu-item href="https://dashboard.heroku.com/apps" target="_blank">Heroku</a>
+    <a mat-menu-item href="https://c9.io/stilwilltc" target="_blank">Cloud9</a>
+    <a mat-menu-item href="http://phaselineblue.com" target="_blank">Phaselineblue.com</a>
+    <a mat-menu-item href="http://www.hashtagcoding.com/" target="_blank">#Coding</a>
+</mat-menu>
+
+<mat-menu #networkMenu="matMenu">
+    <a mat-menu-item href="http://sol:5000/" target="_blank">Sol (NAS)</a>
+    <a mat-menu-item href="https://my.ooma.com/dashboard" target="_blank">Ooma Dashboard</a>
+    <a mat-menu-item href="http://192.168.1.1" target="_blank">Nighthawk</a>
+    <a mat-menu-item href="http://192.168.1.49" target="_blank">HP 8100 Printer</a>
+    <a mat-menu-item href="http://192.168.1.202" target="_blank">Netgear Switch GS108T</a>
+    <a mat-menu-item href="http://192.168.1.24" target="_blank">Netgear Extender EX6200</a>
+</mat-menu>

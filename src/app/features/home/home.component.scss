@@ -1,0 +1,70 @@
+$header-height: 60px;
+$footer-height: 30px;
+$footer-background-color: #bbb;
+
+header {
+  position: relative;
+  height: $header-height;
+
+}
+
+main {
+  position: absolute;
+  top: $header-height;
+  bottom: $footer-height;
+  width: 100%;
+  overflow: auto;
+  background-color: #eee;
+}
+
+footer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  height: $footer-height;
+  line-height: $footer-height;
+  width: 100%;
+
+  border-top: 1px dotted #444;
+  background-color: $footer-background-color;
+  .footer-left {
+    flex: 1;
+    padding: 0 10px;
+  }
+  .footer-right {
+    text-align: right;
+    flex: 1;
+    padding: 0 10px;
+  }
+}
+
+mat-toolbar-row {
+  ul {
+    list-style: none;
+    li {
+      margin-right: 0;
+      button:hover {
+        background-color: goldenrod;
+      }
+    }
+  }
+
+  .mat-form-field {
+    margin-bottom: 0;
+    font-size: 0.7em;
+  }
+
+}
+::ng-deep .mat-input-element::placeholder{
+  color: whitesmoke;
+}
+
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+
+   background-color:whitesmoke;
+}
+
+::ng-deep .mat-form-field-underline{
+
+   background-color:whitesmoke;
+}

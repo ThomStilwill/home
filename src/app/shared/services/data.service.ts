@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { APP_CONFIG, AppConfig } from '../app-config.module';
+import { APP_CONFIG, AppConfig } from '../../app-config.module';
 import { HttpClient } from '@angular/common/http';
 import { Link } from '../models/link';
 
@@ -10,6 +10,6 @@ export class DataService {
               @Inject(APP_CONFIG) private config: AppConfig) { }
 
     getLinks(id) {
-        return this.http.get<Link[]>(`${this.config.apiUrl}links-${id}`);
+        return this.http.get<Link[]>(`${this.config.apiUrl}/links-${id}`);
     }
 }
