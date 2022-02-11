@@ -1,0 +1,14 @@
+<div class="modal" *ngIf="!hidden">
+  <div class="modal__body">
+    <div class="modal__title">{{title}}
+      <button (click)="close()" aria-label="Close" class="modal__close-btn">
+        <fa-icon [icon]="closeicon"></fa-icon>
+      </button>
+    </div>
+    <div class="modal__content">
+        <ng-content></ng-content>
+    </div>
+  </div>
+
+</div>
+<div class="modal__background" *ngIf="!hidden"></div>

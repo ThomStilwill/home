@@ -1,0 +1,17 @@
+  <form [formGroup]="form" (submit)="submit(form)">
+
+    <div class="validation-banner" *ngIf="showBanner()">
+      <fa-icon [icon]="bannericon" class="alert-icon"></fa-icon> Please fix issues and try again.
+    </div>
+
+    <input-text formControlName="name" label="Name"></input-text>
+    <input-text formControlName="description" label="Description"></input-text>
+    <input-text formControlName="year" label="Year" mask="0000"></input-text>
+
+    <input type="hidden" formControlName="id">
+
+    <div class="button-bar">
+      <button type="reset" (click)="cancel()">Cancel</button>
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>

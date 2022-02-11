@@ -1,0 +1,50 @@
+<h3>
+  Report
+</h3>
+
+<form [formGroup]="form" (submit)="submit(form)">
+  <div class="reportEntry">
+    <input type="hidden" formControlName="id">
+    <input-text formControlName="mileage" label="Current Mileage" type="text"></input-text>
+    <input-text formControlName="milesAlert1" label="Alert 1" type="text"></input-text>
+    <input-text formControlName="milesAlert2" label="Alert 2" type="text"></input-text>
+  </div>
+  <!-- <button type="submit">Save</button> -->
+</form>
+
+<table>
+  <thead>
+    <tr>
+    <th>&nbsp;</th>
+    <th class="numberCol">Date</th>
+    <th class="numberCol">Mileage</th>
+    <th class="numberCol">Since Service</th>
+    <th class="numberCol">Next Service in...</th>
+    <th>Event</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let schedule of items">
+    <tr class="schedule-header">
+      <td colspan="6">
+          {{schedule['description']}}
+      </td>
+    </tr>
+    <tr *ngFor="let log of schedule.logs">
+      <td>&nbsp;<button type="button" class="btn-icon" (click)="edit(log)"  title="Edit log event."><fa-icon [icon]="editIcon"></fa-icon></button>
+      </td>
+      <td class="numberCol">{{log['date'] | date: 'MM/dd/yyyy'}}</td>
+      <td class="numberCol">{{log['mileage']}}</td>
+      <td class="numberCol">{{this.form.value.mileage - log['mileage']}}</td>
+      <td class="numberCol {{this.alertStyle(schedule,log)}}">
+        {{this.alertMiles(schedule,log) | minustoparens }}
+      </td>
+      <td>{{log['event']}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
+
+<app-modal id="editlog" class="modal__medium">
+    <div #parent></div>
+  </app-modal>

@@ -1,0 +1,14 @@
+<form [formGroup]="form" (submit)="submit(form)">
+
+    <input-text formControlName="description" label="Description"></input-text>
+    <input-text formControlName="months" label="Months" type=number></input-text>
+    <input-text formControlName="miles" label="Miles" type=number></input-text>
+    <input-text formControlName="note" label="Note"></input-text>
+
+    <input type="hidden" formControlName="id">
+    <div class="button-bar">
+      <button type="reset" (click)="cancel()" >Cancel</button>
+      <button type="submit">Save</button>
+  </div>
+</form>
+<!-- <p>Form value: {{ logform.value | json }}</p> -->

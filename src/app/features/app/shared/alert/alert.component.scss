@@ -1,0 +1,104 @@
+$success-color: rgb(169, 255, 169);
+$success-accent-color: rgb(0, 85, 7);
+
+$info-color: rgb(192, 239, 255);
+$info-accent-color: rgb(26, 60, 253);
+
+$warning-color: rgb(250, 226, 167);
+$warning-accent-color: rgb(240, 173, 78);
+
+$danger-color:  rgb(251, 131, 131);
+$danger-accent-color: rgb(129, 0, 0);
+
+.alert-wrapper {
+  width: 100%;
+  padding: 0px;
+}
+
+.alert {
+  width: 100%;
+  min-height: 30px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  color: black;
+  border-left-width: 6px;
+  border-left-style: solid;
+}
+
+.fade-in{
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein{
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.fade-out{
+  animation: fadeout 0.5s;
+}
+
+@keyframes fadeout{
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+.alert-close {
+  float: right;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  color: inherit;
+  text-align: right;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  width:20px;
+  opacity: 0.5;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+.alert-message {
+  padding-left: 30px;
+  padding-right: 20px;
+}
+
+.alert-icon {
+  float: left;
+}
+
+.alert-success{
+  background-color: $success-color;
+  border-left-color: $success-accent-color;
+  .alert-icon {
+    color:$success-accent-color;
+  }
+}
+
+.alert-info{
+  background-color:$info-color;
+  border-left-color:$info-accent-color;
+  .alert-icon {
+    color:$info-accent-color;
+  }
+}
+
+.alert-warning{
+  background-color:$warning-color;
+  border-left-color:$warning-accent-color;
+  .alert-icon {
+    color:$warning-accent-color;
+  }
+}
+
+.alert-danger{
+  background-color:$danger-color;
+  border-left-color:$danger-accent-color;
+  .alert-icon {
+    color:$danger-accent-color;
+  }
+}

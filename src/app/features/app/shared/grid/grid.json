@@ -1,0 +1,10 @@
+{
+  "columns": [
+    {
+      "Label": "Action"
+    }
+  ],
+  "paging":{
+    "size": 10
+  }
+}

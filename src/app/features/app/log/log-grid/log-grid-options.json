@@ -1,0 +1,39 @@
+{ "columns":
+  [
+    {
+      "data":"date",
+      "type": "date",
+      "label": "Date",
+      "sort": "desc",
+      "dateformat": "MM/dd/yyyy",
+      "width" : "100px"
+    },
+    {
+      "data":"mileage",
+      "type": "number",
+      "label": "Mileage",
+      "width" : "100px"
+    },
+    {
+      "data":"event",
+      "label": "Event"
+    },
+    {
+      "data":"note",
+      "label": "Note"
+
+    },
+    {
+      "data":"schedule",
+      "label": "Schedule"
+    },
+    {
+      "label": "Action",
+      "width" : "160px",
+      "custom": true
+    }
+  ],
+  "paging": {
+    "size": 10
+  }
+}

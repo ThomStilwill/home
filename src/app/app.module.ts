@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogConfig } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +12,7 @@ import { HomeModule } from './features/home/home.module';
 import { CoreModule } from '@angular/flex-layout';
 import { DataService } from './shared/services/data.service';
 import { AppComponent } from './app.component';
+import { CarlogModule } from './features/app/carlog.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,11 +20,10 @@ import { AppComponent } from './app.component';
     AppConfigModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     CoreModule,
     HomeModule,
+    CarlogModule,
     AppRoutingModule,
     SharedModule.forRoot()
   ],

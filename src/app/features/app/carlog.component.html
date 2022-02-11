@@ -1,0 +1,32 @@
+<header>
+
+  <div class="logo">
+    <img src="assets/images/logo.jpeg">
+  </div>
+
+  <div class="title">
+    GTI Vehicle Maintenance Log
+    <div class="subtitle">
+      So, what's gonna break next?
+    </div>
+    <welcome></welcome>
+  </div>
+
+  <div class="navbar">
+    <a [routerLink]="['home']" routerLinkActive="active-link">Home</a>
+    <a [routerLink]="['about']" routerLinkActive="active-link">About</a>
+    <a [routerLink]="['log']" routerLinkActive="active-link">Log</a>
+    <a [routerLink]="['test']" routerLinkActive="active-link" *auth="'admin'">Test</a>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer>
+  <div class="footer-left">
+    <button (click)="toggleDebug()" class="button-icon">
+        <fa-icon [icon]="bugicon" ></fa-icon>
+    </button></div>
+  <div class="footer-right">&copy; 2018 - Thom Stilwill</div>
+</footer>
+<app-loading></app-loading>

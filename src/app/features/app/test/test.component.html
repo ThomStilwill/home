@@ -1,0 +1,42 @@
+<main class="no-sub-menu">
+
+  <alert></alert>
+
+  <div class="col-md-10 col-md-offset-1 text-center">
+
+    <section>
+      <h2>Alert tests</h2>
+      <button class="btn btn-success" (click)="success('Success!!')">Success</button>
+      <button class="btn btn-success" (click)="success('Success!!  Closing in 3 seconds.', 3000)">Success Auto-clear</button>
+
+      <button class="btn btn-danger" (click)="error('Error :(')">Error</button>
+      <button class="btn btn-info" (click)="info('Some info....')">Info</button>
+      <button class="btn btn-warning" (click)="warn('Warning: ...')">Warn</button>
+      <button class="btn btn-warning" (click)="warn('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis malesuada sapien. Integer ut orci pulvinar, ultricies purus ac, hendrerit purus. Phasellus metus est, hendrerit eu erat sed, vestibulum efficitur nulla. Maecenas vitae lacus et neque tempus tincidunt. Nam posuere dolor turpis, eu varius arcu hendrerit in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos ')">Warn
+        very long</button>
+      <button class="btn btn-default" (click)="clear()">Clear</button>
+    </section>
+
+    <section>
+      <h2>Component tests</h2>
+      <button class="btn btn-default" (click)="testloader()">Test Loader</button>
+      <button class="btn btn-default" (click)="openDialog()">Open Dialog</button>
+      <button class="btn btn-default" [routerLink]="['testform']" routerLinkActive="active-link">Test Form</button>
+    </section>
+
+    <section>
+      <h2>Vehicles</h2>
+      <vehicle-grid></vehicle-grid>
+    </section>
+  </div>
+
+</main>
+
+<dialog id="testdialog">
+  <h3>This is dialog content</h3>
+  <p>This is some text to provide context or a question.</p>
+  <div class="right">
+    <button type="submit">Ok</button>
+    <button type="button" (click)="closeDialog()">Cancel</button>
+  </div>
+</dialog>

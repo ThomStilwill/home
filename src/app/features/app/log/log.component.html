@@ -1,0 +1,11 @@
+<nav>
+  <div class="subnav">
+    <a [routerLink]="['vehicles']" routerLinkActive="active-link">Vehicles</a>
+    <a [routerLink]="['list']" routerLinkActive="active-link">List</a>
+    <a [routerLink]="['schedule']" routerLinkActive="active-link">Schedule</a>
+    <a [routerLink]="['report']" routerLinkActive="active-link">Report</a>
+  </div>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>

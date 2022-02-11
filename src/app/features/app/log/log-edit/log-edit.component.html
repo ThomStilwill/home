@@ -1,0 +1,43 @@
+  <form [formGroup]="form" (submit)="submit(form)">
+
+    <div class="validation-banner" *ngIf="showBanner()">
+      <fa-icon [icon]="bannericon" class="alert-icon"></fa-icon> Please fix issues and try again.
+    </div>
+
+    <input-date formControlName="date" label="Date"></input-date>
+    <input-text formControlName="mileage" label="Mileage" type="number" mask="0*"></input-text>
+    <input-text formControlName="event" label="Event"></input-text>
+    <input-text formControlName="note" label="Note"></input-text>
+
+    <div class="field">
+
+      <label>
+        <span class="labeltext">Schedule</span>
+        <div formArrayName="schedules" class="arrayform">
+          <div *ngFor="let item of formSchedules.controls; let i=index" [formGroupName]="i">
+
+            <select formControlName="id">
+              <option selected [value]="null">-- no schedule --</option>
+              <option [value]="schedule.id" *ngFor="let schedule of schedules"> {{ schedule.description }}</option>
+            </select>
+
+            <button type="button" class="btn-icon" *ngIf="!i && isScheduleSelected(i)" (click)="addSchedule()">
+              <fa-icon [icon]="addIcon"></fa-icon>
+            </button>
+            <button type="button" class="btn-icon" *ngIf="i" (click)="deleteSchedule(i)">
+              <fa-icon [icon]="deleteIcon"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </label>
+
+    </div>
+
+    <input type="hidden" formControlName="id">
+    <div class="button-bar">
+      <button type="reset" (click)="cancel()">Cancel</button>
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+<!-- <p>Form value: {{ logform.value | json }}</p> -->

@@ -1,0 +1,11 @@
+<div class="loading__overlay" [class.loading__overlay-fadein]="show" [class.loading__overlay-fadeout]="!show">
+  <div class="loading__content" [class.loading__hide]="!show">
+    <div class="loading__image">
+      <img  src="assets/images/Double Ring.svg" alt="Loading..." >
+    </div>
+    <div class="loading__verbiage">
+      <div class="loading__title">{{title}}</div>
+      <div class="loading__message" *ngIf="message">{{message}}</div>
+    </div>
+  </div>
+</div>

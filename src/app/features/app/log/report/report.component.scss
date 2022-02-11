@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+
+.schedule-header {
+  background-color: cornflowerblue;
+  color: aliceblue;
+  td {
+    padding: 3px;
+  }
+}
+
+.good {
+  background-color: green;
+  color: white;
+}
+
+.info {
+  background-color: yellow;
+}
+
+.warning {
+  background-color: orange;
+  color: white;
+}
+
+.overdue {
+  background-color: darkred;
+  color: white;
+}
+
+.numberCol {
+  text-align: right;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.reportEntry {
+  width: 400px;
+}
