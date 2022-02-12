@@ -8,11 +8,16 @@ import { AuthGuard } from './_guards/auth.guard';
 import { Role } from './_models/roles';
 import { RegisterComponent } from './register/register.component';
 import { TestformComponent } from './test/testform/testform.component';
+import { CarlogComponent } from './carlog.component';
+import { AboutComponent } from './about/about.component';
+import { LogModule } from './log/log.module';
 
 const routes: Routes = [
-  { path: 'carlog', component: HomeComponent, pathMatch: 'full',
+  { path: 'carlog', component: CarlogComponent,
     children: [
+    { path: '', redirectTo:'home',  pathMatch: 'prefix'},
     { path: 'home', component: HomeComponent},
+    { path: 'about', component: AboutComponent},
     { path: 'login', component: LoginComponent},
     { path: 'register', component: RegisterComponent},
     { path: 'admin', component: AdminComponent},
@@ -20,7 +25,8 @@ const routes: Routes = [
       component: TestComponent,
       canActivate: [AuthGuard],
       data: { roles: [Role.Admin] } },
-    { path: 'test/testform', component: TestformComponent},
+    { path: 'test/testform', component: TestformComponent}
+    ,{ path: 'log', loadChildren: () => LogModule}
     ]
   }
 ];

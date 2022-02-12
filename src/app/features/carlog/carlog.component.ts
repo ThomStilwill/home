@@ -10,7 +10,7 @@ import  General from './utilities/general';
 @Component({
   selector: 'app-root',
   templateUrl: './carlog.component.html',
-  styleUrls: ['./carlog.component.css']
+  styleUrls: ['./carlog.component.scss']
 })
 export class CarlogComponent implements OnInit, AfterContentInit {
   currentUser: User;
@@ -33,7 +33,7 @@ export class CarlogComponent implements OnInit, AfterContentInit {
         this.debug = active;
       });
   }
-  
+
   ngAfterContentInit() {
     const items = ["Loading...","3","2","1",this.title];
     General.delayTitle(items, this.setTitle(this));

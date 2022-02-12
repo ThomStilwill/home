@@ -4,11 +4,11 @@ import { BadrouteComponent } from './shared/components/badroute/badroute.compone
 
 const routes: Routes = [
   { path: '', redirectTo:'/home', pathMatch: 'full'},
-  { path: '**', component: BadrouteComponent}
+  //{ path: '**', component: BadrouteComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: false,onSameUrlNavigation:'reload'})],
+  imports: [RouterModule.forRoot(routes, {useHash: false})], //,onSameUrlNavigation:'reload'
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

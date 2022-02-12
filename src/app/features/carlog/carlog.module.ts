@@ -23,12 +23,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthorizationDirective } from './directives/authorization.directive';
 import { RegisterComponent } from './register/register.component';
 import { TestformComponent } from './test/testform/testform.component';
-import { GarbageComponent } from './garbage/garbage.component';
 
 import { PathLocationStrategy , LocationStrategy, CommonModule } from '@angular/common';
 import { CarlogRoutingModule } from './carlog-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -43,15 +41,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WelcomeComponent,
     AuthorizationDirective,
     RegisterComponent,
-    TestformComponent,
-    GarbageComponent
+    TestformComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    LogModule,
     CarlogRoutingModule,
+    LogModule,
     SharedModule.forRoot()
   ],
   providers: [

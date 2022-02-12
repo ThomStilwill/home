@@ -13,8 +13,9 @@ import { VehiclesComponent} from './vehicles/vehicles.component';
 import { VehicleEditComponent } from './vehicles/vehicle-edit/vehicle-edit.component';
 
 const routes: Routes = [
-  { path: 'log', component: LogComponent, pathMatch: 'full',
+  { path: '', component: LogComponent,
     children: [
+      //{ path: '', redirectTo:'report', pathMatch:'full'},
       { path: 'vehicles', component: VehiclesComponent },
       { path: 'list', component: LogListComponent },
       { path: 'edit', component: LogEditComponent },

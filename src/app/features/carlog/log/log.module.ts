@@ -24,14 +24,6 @@ import { VehicleEditComponent } from './vehicles/vehicle-edit/vehicle-edit.compo
 import { LogGridComponent } from './log-grid/log-grid.component';
 
 @NgModule({
-  imports: [
-            CommonModule,
-            HttpClientModule,
-            FormsModule,
-            ReactiveFormsModule,
-            LogRoutingModule,
-            SharedModule.forRoot()
-          ],
   declarations: [
                   LogListComponent,
                   LogComponent,
@@ -44,13 +36,22 @@ import { LogGridComponent } from './log-grid/log-grid.component';
                   VehicleEditComponent,
                   LogGridComponent
                 ],
+  imports: [
+                  CommonModule,
+                  HttpClientModule,
+                  FormsModule,
+                  ReactiveFormsModule,
+                  LogRoutingModule,
+                  SharedModule.forRoot()
+          ],
+
   providers: [
-              LogService,
-              ScheduleService,
-              ReportService,
-              VehicleService,
-              DatePipe,
-              { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+                  LogService,
+                  ScheduleService,
+                  ReportService,
+                  VehicleService,
+                  DatePipe,
+                  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
             ]
 })
 export class LogModule { }

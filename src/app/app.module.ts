@@ -12,7 +12,8 @@ import { HomeModule } from './features/home/home.module';
 import { CoreModule } from '@angular/flex-layout';
 import { DataService } from './shared/services/data.service';
 import { AppComponent } from './app.component';
-import { CarlogModule } from './features/app/carlog.module';
+import { CarlogModule } from './features/carlog/carlog.module';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,10 +22,10 @@ import { CarlogModule } from './features/app/carlog.module';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     CoreModule,
     HomeModule,
     CarlogModule,
-    AppRoutingModule,
     SharedModule.forRoot()
   ],
   providers: [ DataService,
@@ -42,4 +43,9 @@ import { CarlogModule } from './features/app/carlog.module';
    }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private readonly router: Router) {
+    // router.events
+    //   .subscribe(console.log)
+}}

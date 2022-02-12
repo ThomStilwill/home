@@ -84,7 +84,7 @@ export class SharedModule {
 
   constructor(@Optional() @SkipSelf() parentModule: SharedModule) {
     if (parentModule) {
-      throw new Error('Shared Module already loaded');
+     // throw new Error('Shared Module already loaded');
     }
   }
 

@@ -1,0 +1,58 @@
+$header-height: 136px;
+$nav-height: 34px;
+$subnav-height: 26px;
+$footer-height: 30px;
+
+$base-background-color: #fff;
+$base-text-color: #333;
+
+$base-background-color: #fefefe;
+$primary-text-reverse-color: #ddd;
+
+
+$footer-background-color: #bbb;
+
+$invalid-color: darkred;
+
+a[ng-reflect-router-link]{
+  display: inline-block;
+  width: 5em;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border-right: 2px solid lightgrey;
+}
+
+.navbar {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: $nav-height;
+  line-height: $nav-height + 1;
+  background-color: darkred;
+
+  a[ng-reflect-router-link]:hover {
+    background-color: darkgray;
+    color: black;
+  }
+
+  .active-link{
+    background-color: gray;
+  }
+}
+
+.subnav {
+  width: 100%;
+  height: $subnav-height;
+  line-height: $subnav-height;
+  background-color: gray;
+
+  a[ng-reflect-router-link]:hover {
+    background-color: gray;
+    color: black;
+  }
+
+  .active-link{
+    background-color: darkgray;
+  }
+}

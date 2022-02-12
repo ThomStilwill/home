@@ -4,7 +4,7 @@ import { LoadingService } from '../shared/services/loading.service';
 @Component({
   selector: 'app-log',
   templateUrl: './log.component.html',
-  styleUrls: ['./log.component.css']
+  styleUrls: ['./log.component.scss']
 })
 export class LogComponent implements OnInit {
 
@@ -12,7 +12,7 @@ export class LogComponent implements OnInit {
 
   ngOnInit() {
     console.log('Log Component loaded');
-    this.test();
+    //this.test();
   }
 
   test() {
