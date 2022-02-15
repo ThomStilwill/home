@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertService } from '../shared/services/alert.service';
-import { Item } from '../shared/models/item';
+import { AlertService } from '../core/services/alert.service';
+import { Item } from '../core/models/item';
 
 @Component({
   selector: 'app-register',

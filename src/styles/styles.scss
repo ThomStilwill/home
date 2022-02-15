@@ -1,19 +1,4 @@
-@import 'variables';
 @import 'base';
-@import 'layout';
-@import 'modal';
-@import 'loading';
-@import 'nav';
-@import 'form';
-@import 'datepicker';
-@import 'grid';
-@import 'general';
-
-
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "material-override";
-
-.fit {
-    display: inline-block;
-    white-space: nowrap;
-}

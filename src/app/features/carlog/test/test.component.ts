@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { AlertService } from '../shared/services/alert.service';
-import { LoadingService } from '../shared/services/loading.service';
+import { AlertService } from '../core/services/alert.service';
+import { LoadingService } from '../core/services/loading.service';
 
-import { DialogService } from '../shared/services/dialog.service';
+import { DialogService } from '../core/services/dialog.service';
 
 @Component({
   selector: 'app-test',

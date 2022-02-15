@@ -1,4 +1,4 @@
-import { GridItem } from "../shared/grid/gridItem";
+import { GridItem } from "../core/grid/gridItem";
 
 export class Vehicle extends GridItem {
 

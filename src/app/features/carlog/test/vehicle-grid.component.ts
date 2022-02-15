@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { GridComponent } from '../shared/grid/grid.component';
+import { GridComponent } from '../core/grid/grid.component';
 import { Vehicle } from './vehicle';
 import data from './vehicle-data.json';
 import gridoptions from './vehicle-grid-options.json';

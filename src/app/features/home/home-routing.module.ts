@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { IconsComponent } from './components/icons/icons.component';
 import { HomeComponent } from './home.component';
 import { LinksComponent } from './pages/links/links.component';
 import { PingComponent } from './pages/ping/ping.component';
@@ -14,7 +15,9 @@ const routes: Routes = [
           { path: 'links', component: LinksComponent},
           { path: 'play', component: PlayComponent},
           { path: 'work', component: WorkComponent},
-          { path: 'ping', component: PingComponent}
+          { path: 'ping', component: PingComponent},
+          { path: 'icons', component: IconsComponent}
+
         ]
   }
 ];

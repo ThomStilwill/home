@@ -7,9 +7,8 @@ import { PingComponent } from './pages/ping/ping.component';
 import { PlayComponent } from './pages/play/play.component';
 import { WorkComponent } from './pages/work/work.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { MaterialModule } from 'src/app/shared/material.module';
 import { HomeComponent } from './home.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { IconsComponent } from './components/icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -17,16 +16,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LinksComponent,
     PingComponent,
     PlayComponent,
-    WorkComponent
+    WorkComponent,
+    IconsComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     SharedModule,
     CoreModule,
-    HomeRoutingModule,
-    FlexLayoutModule,
-    SharedModule.forRoot()
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }

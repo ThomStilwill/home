@@ -4,7 +4,7 @@
   <header>
   <mat-toolbar>
     <mat-toolbar-row>
-      <h2 [routerLink]="['home']">{{title}}</h2>
+      <h2 [routerLink]="['/']">{{title}}</h2>
       <div fxFlex fxLayout fxLayoutAlign="flex-end">
         <ul fxLayout fxLayoutGap="2px">
             <li><button mat-button [matMenuTriggerFor]="homeMenu" routerLinkActive="active-link">Home</button></li>
@@ -41,6 +41,7 @@
   <a mat-menu-item [routerLink]="['work']">Work</a>
   <a mat-menu-item [routerLink]="['play']">Play</a>
   <a mat-menu-item [routerLink]="['ping']">Ping</a>
+  <a mat-menu-item [routerLink]="['icons']">Icons</a>
   <a mat-menu-item [routerLink]="['/carlog']">Carlog</a>
 </mat-menu>
 

@@ -10,7 +10,15 @@ import { RegisterComponent } from './register/register.component';
 import { TestformComponent } from './test/testform/testform.component';
 import { CarlogComponent } from './carlog.component';
 import { AboutComponent } from './about/about.component';
-import { LogModule } from './log/log.module';
+import { ReportComponent } from './components/report/report.component';
+import { ScheduleEditComponent } from './components/schedule-edit/schedule-edit.component';
+import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
+import { LogEditComponent } from './components/log-edit/log-edit.component';
+import { LogListComponent } from './components/log-list/log-list.component';
+import { VehicleEditComponent } from './components/vehicle-edit/vehicle-edit.component';
+import { LogComponent } from './containers/log/log.component';
+import { VehiclesComponent } from './containers/vehicles/vehicles.component';
+
 
 const routes: Routes = [
   { path: 'carlog', component: CarlogComponent,
@@ -25,8 +33,20 @@ const routes: Routes = [
       component: TestComponent,
       canActivate: [AuthGuard],
       data: { roles: [Role.Admin] } },
-    { path: 'test/testform', component: TestformComponent}
-    ,{ path: 'log', loadChildren: () => LogModule}
+    { path: 'test/testform', component: TestformComponent},
+    { path: 'log', component: LogComponent,
+          children: [
+            //{ path: '', redirectTo:'report', pathMatch:'full'},
+            { path: 'vehicles', component: VehiclesComponent },
+            { path: 'list', component: LogListComponent },
+            { path: 'edit', component: LogEditComponent },
+            { path: 'add', component: LogEditComponent },
+            { path: 'vehicle/edit', component: VehicleEditComponent },
+            { path: 'schedule', component: ScheduleListComponent},
+            { path: 'schedule/edit', component: ScheduleEditComponent},
+            { path: 'report', component: ReportComponent},
+          ]
+        }
     ]
   }
 ];

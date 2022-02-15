@@ -1,9 +1,9 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogConfig } from '@angular/material/dialog';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogConfig } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfigModule } from './app-config.module';
@@ -18,10 +18,10 @@ import { Router } from '@angular/router';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    AppConfigModule,
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    AppConfigModule,
     AppRoutingModule,
     CoreModule,
     HomeModule,
@@ -41,6 +41,7 @@ import { Router } from '@angular/router';
      }
      } as MatDialogConfig
    }],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {

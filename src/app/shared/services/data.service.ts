@@ -10,6 +10,6 @@ export class DataService {
               @Inject(APP_CONFIG) private config: AppConfig) { }
 
     getLinks(id) {
-        return this.http.get<Link[]>(`${this.config.apiUrl}/links-${id}`);
+        return this.http.get<Link[]>(`${this.config.apiUrl}links-${id}`);
     }
 }

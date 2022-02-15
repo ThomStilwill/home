@@ -1,21 +1,20 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 import { User } from './_models/user';
-import { DebugService } from './shared/services/debug.service';
-import { faBug } from '@fortawesome/free-solid-svg-icons';
+import { DebugService } from './core/services/debug.service';
 import { Title } from '@angular/platform-browser';
 import  General from './utilities/general';
 
 @Component({
   selector: 'app-root',
   templateUrl: './carlog.component.html',
-  styleUrls: ['./carlog.component.scss']
+  styleUrls: ['./carlog.component.scss'],
+  encapsulation:  ViewEncapsulation.ShadowDom
 })
 export class CarlogComponent implements OnInit, AfterContentInit {
   currentUser: User;
   debug = false;
-  bugicon = faBug;
   title = 'Carlog';
 
   constructor(
