@@ -82,7 +82,7 @@ export class GridComponent<T extends GridItem> implements OnInit, OnChanges, Aft
   }
 
   private textcompare(obj, match): boolean {
-    const target = obj.toString();
+    const target = obj+"";
 
     if (!match) {
       return true;

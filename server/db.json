@@ -548,7 +548,7 @@
     },
     {
       "id": 35,
-      "event": "Test 2",
+      "event": "test 1",
       "date": "2019-01-27T05:00:00.000Z",
       "mileage": "60000",
       "note": "note ",
@@ -567,6 +567,18 @@
       "schedules": [
         {
           "id": null
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "event": "test 2",
+      "date": "2019-01-27T05:00:00.000Z",
+      "mileage": "60000",
+      "note": "note ",
+      "schedules": [
+        {
+          "id": "8"
         }
       ]
     }

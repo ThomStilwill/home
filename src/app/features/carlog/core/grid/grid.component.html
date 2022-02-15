@@ -12,10 +12,9 @@
         </label>
         <span>Showing {{displayFirst}} to {{displayLast}} of {{filteredItems.length}}</span>
 
-        <button type="button" class="btn-icon grid-add" (click)="add()" title="Add log event.">
-          <mat-icon>add</mat-icon>
+        <button type="button" class="btn-icon grid-add" (click)="add()" >
+          <mat-icon title="Add log event." inline="true">add</mat-icon>
         </button>
-
       </div>
     </form>
   </div>
@@ -29,7 +28,7 @@
               [class]="cssSort(i)"
               (click)="sortChange(i)"
               [attr.width]="column.width">
-            <mat-icon>add_task</mat-icon>
+            <mat-icon title="sort" inline="true">sort</mat-icon>
             {{column.label}}
           </th>
           <th *ngIf="column.nosort"

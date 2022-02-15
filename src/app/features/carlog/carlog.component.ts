@@ -1,13 +1,13 @@
 import { Component, OnInit, AfterContentInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
-import { User } from './_models/user';
 import { DebugService } from './core/services/debug.service';
 import { Title } from '@angular/platform-browser';
 import  General from './utilities/general';
+import { User } from './core/models/user';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-carlog',
   templateUrl: './carlog.component.html',
   styleUrls: ['./carlog.component.scss'],
   encapsulation:  ViewEncapsulation.ShadowDom

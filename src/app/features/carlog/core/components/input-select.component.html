@@ -5,7 +5,7 @@
     <div class="inputblock">
       <div class="select">
           <select [(ngModel)]="_value"
-                  (input)="onChange($event)"
+                  (input)="onChange($event.target.value)"
                   (blur)="onTouched()">
               <option disabled class="option-placeholder">{{placeholder}}</option>
               <option *ngFor="let item of items" [value]="item.key">

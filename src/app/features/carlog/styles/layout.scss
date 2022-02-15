@@ -1,11 +1,5 @@
 @import './variables.scss';
 
-// html, body {
-//   height: 100%;
-//   width: 100%;
-//   overflow: hidden;
-// }
-
 header {
   position: relative;
   height: $header-height;
@@ -22,7 +16,6 @@ main {
   bottom: $footer-height;
   width: 100%;
   overflow: auto;
-  padding: 10px;
 }
 
 main.no-sub-menu {
@@ -37,15 +30,17 @@ footer {
   line-height: $footer-height;
   width: 100%;
 
-  padding: 0 10px;
   border-top: 1px solid #bbb;
   background-color: $footer-background-color;
   .footer-left {
     flex: 1;
+    padding-left: 10px;
   }
   .footer-right {
-    text-align: right;
     flex: 1;
+    text-align: right;
+    padding-right: 10px;
+
   }
 }
 

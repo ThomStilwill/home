@@ -35,8 +35,12 @@
 
     <input type="hidden" formControlName="id">
     <div class="button-bar">
-      <button type="reset" (click)="cancel()">Cancel</button>
-      <button type="submit" [disabled]="!form.valid">Save</button>
+      <button type="reset" (click)="cancel()">
+        <mat-icon title="Cancel" inline="true">cancel</mat-icon>
+      </button>
+      <button type="submit" [disabled]="!form.valid">
+        <mat-icon title="Save" inline="true">save</mat-icon>
+      </button>
     </div>
   </form>
 

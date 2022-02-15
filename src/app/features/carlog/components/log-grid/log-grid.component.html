@@ -1,24 +1,24 @@
-<app-grid [items]="events" [options]="gridoptions">
+<app-grid [items]="events" [options]="gridoptions" (addEvent)="add()">
 
   <ng-template let-item>
     <td>
+      <button type="button" class="btn-icon" [class.selected]="item.selected" (click)="select(item)" title="Select item.">
+        <mat-icon title="Select" inline="true">check</mat-icon>
+      </button>
       <button type="button" class="btn-icon" (click)="edit(item)" title="Edit item.">
         <fa-icon [icon]="editIcon"></fa-icon>
-      </button>
-      <button type="button" class="btn-icon" (click)="delete(item)" title="Deleteitem.">
-        <fa-icon [icon]="deleteIcon"></fa-icon>
+        <mat-icon title="Edit Item." inline="true">edit</mat-icon>
       </button>
       <button type="button" class="btn-icon" (click)="copy(item)" title="Copyitem.">
-        <fa-icon [icon]="copyIcon"></fa-icon>
+        <mat-icon title="Copy Item" inline="true">content_copy</mat-icon>
       </button>
-      <button type="button" class="btn-icon" [class.selected]="item.selected" (click)="select(item)" title="Select item.">
-        <fa-icon [icon]="selectIcon"></fa-icon>
+      <button type="button" class="btn-icon" (click)="delete(item)" title="Deleteitem.">
+        <mat-icon title="Delete item" inline="true">delete</mat-icon>
       </button>
     </td>
   </ng-template>
 
 </app-grid>
-
 
 <app-modal id="editlog" class="modal__medium">
   <div #parent></div>

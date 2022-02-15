@@ -12,9 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor,  } from './_helpers/jwt.interceptor';
-import { ErrorInterceptor } from './_helpers/error.interceptor';
-import { fakeBackendProvider } from './_helpers/fake-backend';
+import { JwtInterceptor,  } from './core/_helpers/jwt.interceptor';
+import { ErrorInterceptor } from './core/_helpers/error.interceptor';
+import { fakeBackendProvider } from './core/_helpers/fake-backend';
 
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';

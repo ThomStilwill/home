@@ -24,10 +24,10 @@
   <div class="pager-select">
 
     <button type="button" class="btn-icon" [disabled]="currentPage === 0" (click)="requestPage(0)">
-      <mat-icon>first_page</mat-icon>
+      <mat-icon  title="First" inline="true">first_page</mat-icon>
     </button>
     <button type="button" class="btn-icon" [disabled]="currentPage === 0" (click)="requestPage(currentPage-1)">
-      <mat-icon>navigate_before</mat-icon>
+      <mat-icon  title="Previous" inline="true">navigate_before</mat-icon>
     </button>
 
     <ng-template ngFor let-page [ngForOf]="pagerPages">
@@ -40,10 +40,10 @@
     </ng-template>
 
     <button type="button" class="btn-icon" [disabled]="currentPage === (lastPage)" (click)="requestPage(currentPage+1)">
-        <mat-icon>navigate_next</mat-icon>
+        <mat-icon  title="Next" inline="true">navigate_next</mat-icon>
     </button>
     <button type="button" class="btn-icon" [disabled]="currentPage === (lastPage)" (click)="requestPage(lastPage)">
-        <mat-icon>last_page</mat-icon>
+        <mat-icon title="Last" inline="true">last_page</mat-icon>
     </button>
   </div>
 </div>

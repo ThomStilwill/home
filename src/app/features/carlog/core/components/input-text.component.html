@@ -10,7 +10,7 @@
                [mask]='mask'
                (input)="onChange($event)"
                (blur)="onTouched()"
-               (keyup)="onChange($event)">
+               (keyup)="onChange($event.target.value)">
         <control-status [control]="control"></control-status>
       </div>
 

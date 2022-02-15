@@ -5,7 +5,7 @@ import { TestComponent } from './test/test.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { Role } from './_models/roles';
+import { Role } from './core/models/roles';
 import { RegisterComponent } from './register/register.component';
 import { TestformComponent } from './test/testform/testform.component';
 import { CarlogComponent } from './carlog.component';

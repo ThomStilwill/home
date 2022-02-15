@@ -7,9 +7,9 @@
                placeholder="{{placeholder}}"
                [value]="_value | date: 'MM/dd/yyyy'"
                [mask]="mask"
-               (input)="onChange($event)"
+               (input)="onChange($event.target.value)"
                (blur)="onTouched()"
-               (keyup)="onChange($event)">
+               (keyup)="onChange($event.target.value)">
         <control-status [control]="control"></control-status>
       </div>
 

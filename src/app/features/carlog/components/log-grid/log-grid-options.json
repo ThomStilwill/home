@@ -29,8 +29,9 @@
     },
     {
       "label": "Action",
-      "width" : "160px",
-      "custom": true
+      "width" : "100px",
+      "custom": true,
+      "nosort": true
     }
   ],
   "paging": {
