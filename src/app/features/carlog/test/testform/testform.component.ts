@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Helper } from '../../core/services/helper.service';
+import { Schedule } from '../../models/schedule';
+import { ScheduleService } from '../../services/schedule.service';
 
 @Component({
   selector: 'app-testform',
@@ -10,9 +13,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TestformComponent implements OnInit {
   form: FormGroup;
+  schedules: Schedule[];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private scheduleService: ScheduleService,
+              private helper: Helper) {
     this.initForm();
+
+    this.scheduleService.getall()
+        .subscribe((schedules) => {
+            this.schedules = schedules.sort((b, a) => {
+              return helper.compare(a.description, b.description);
+            });
+        });
+
    }
 
   ngOnInit() {
@@ -24,8 +38,35 @@ export class TestformComponent implements OnInit {
       event: [null, Validators.required],
       date: null,
       mileage: [null, Validators.required],
-      note: null
+      note: null,
+      schedules: this.fb.array([this.initSchedule()])
     });
+  }
+
+
+  get formSchedules() {
+    return this.form.get('schedules') as FormArray;
+  }
+
+  initSchedule() {
+    return this.fb.group({id: null});
+  }
+
+  addSchedule() {
+    console.log('schedule added');
+    this.formSchedules.push(this.initSchedule());
+  }
+
+  deleteSchedule(index) {
+    console.log('schedule delete');
+    (<FormArray>this.form.controls.schedules).removeAt(index);
+  }
+
+  isScheduleSelected(index) {
+    const control = (<FormArray>this.form.controls.schedules).controls[index];
+    const value = control.value.id;
+    console.log('schedule is selected:' + value !== 'null');
+    return value !== 'null';
   }
 
   onSubmit(data) {

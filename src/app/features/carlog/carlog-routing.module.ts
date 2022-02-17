@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './containers/home/home.component';
 import { TestComponent } from './test/test.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
@@ -9,7 +9,7 @@ import { Role } from './core/models/roles';
 import { RegisterComponent } from './register/register.component';
 import { TestformComponent } from './test/testform/testform.component';
 import { CarlogComponent } from './carlog.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './containers/about/about.component';
 import { ReportComponent } from './components/report/report.component';
 import { ScheduleEditComponent } from './components/schedule-edit/schedule-edit.component';
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
@@ -31,8 +31,9 @@ const routes: Routes = [
     { path: 'admin', component: AdminComponent},
     { path: 'test',
       component: TestComponent,
-      canActivate: [AuthGuard],
-      data: { roles: [Role.Admin] } },
+      // canActivate: [AuthGuard],
+      // data: { roles: [Role.Admin] }
+     },
     { path: 'test/testform', component: TestformComponent},
     { path: 'log', component: LogComponent,
           children: [

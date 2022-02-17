@@ -1,6 +1,10 @@
 @import './styles/styles.scss';
 @import './styles/variables.scss';
 
+.content-wrapper {
+  margin: 20px;
+}
+
 a[ng-reflect-router-link]{
   display: inline-block;
   width: 5em;

@@ -1,0 +1,10 @@
+<div class="content-wrapper">
+<h3>Carlog Home</h3>
+
+  <br/>
+  <div *ngIf="userFromApi">
+    <p>You're logged in as <strong>{{userFromApi.firstName}} {{userFromApi.lastName}}</strong>.</p>
+    <p>Your role is: <strong>{{currentUser.role}}</strong>.</p>
+  </div>
+
+</div>

@@ -13,7 +13,7 @@
 
       <label>
         <span class="labeltext">Schedule</span>
-        <div formArrayName="schedules" class="arrayform">
+        <div formArrayName="schedules" class="arrayform inputblock">
           <div *ngFor="let item of formSchedules.controls; let i=index" [formGroupName]="i">
 
             <select formControlName="id">
@@ -22,10 +22,10 @@
             </select>
 
             <button type="button" class="btn-icon" *ngIf="!i && isScheduleSelected(i)" (click)="addSchedule()">
-              <fa-icon [icon]="addIcon"></fa-icon>
+              <mat-icon inline="true">add</mat-icon>
             </button>
             <button type="button" class="btn-icon" *ngIf="i" (click)="deleteSchedule(i)">
-              <fa-icon [icon]="deleteIcon"></fa-icon>
+              <mat-icon inline="true">delete</mat-icon>
             </button>
           </div>
         </div>

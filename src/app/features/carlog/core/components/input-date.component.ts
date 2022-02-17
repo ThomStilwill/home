@@ -5,7 +5,6 @@ import { AbstractValueAccessor, MakeProvider} from './abstract-value-accessor';
 @Component({
   selector: 'input-date',
   templateUrl: './input-date.component.html',
-  styleUrls: ['./input-date.component.scss'],
   providers: [MakeProvider(InputDateComponent)]
 })
 

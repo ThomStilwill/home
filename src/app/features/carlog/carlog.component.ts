@@ -10,7 +10,7 @@ import { User } from './core/models/user';
   selector: 'app-carlog',
   templateUrl: './carlog.component.html',
   styleUrls: ['./carlog.component.scss'],
-  encapsulation:  ViewEncapsulation.ShadowDom
+  encapsulation:  ViewEncapsulation.None
 })
 export class CarlogComponent implements OnInit, AfterContentInit {
   currentUser: User;

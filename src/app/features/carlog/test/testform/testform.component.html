@@ -1,9 +1,36 @@
-<div class="form-wrapper">
+<div class="content-wrapper">
   <h3>Test Form</h3>
   <edit-form [formGroup]="form" (submit)="onSubmit($event)" (cancel)="onCancel($event)">
     <input-date formControlName="date" label="Date"></input-date>
     <input-text formControlName="mileage" label="Mileage" type="number" mask="0*"></input-text>
     <input-text formControlName="event" label="Event"></input-text>
     <input-text formControlName="note" label="Note"></input-text>
+
+    <div class="field">
+
+      <label>
+        <span class="labeltext">Schedule</span>
+        <div class="inputblock">
+          <div formArrayName="schedules" class="arrayform ">
+            <div *ngFor="let item of formSchedules.controls; let i=index" [formGroupName]="i" class="array-form-item">
+              <select formControlName="id">
+                <option selected [value]="null">-- no schedule --</option>
+                <option [value]="schedule.id" *ngFor="let schedule of schedules"> {{ schedule.description }}</option>
+              </select>
+
+
+
+              <button type="button" class="btn-icon" *ngIf="!i && isScheduleSelected(i)" (click)="addSchedule()">
+                <mat-icon inline="true">add</mat-icon>
+              </button>
+              <button type="button" class="btn-icon" *ngIf="i" (click)="deleteSchedule(i)">
+                <mat-icon inline="true">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </label>
+
+    </div>
   </edit-form>
 </div>

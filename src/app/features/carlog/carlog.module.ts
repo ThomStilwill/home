@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 
 import { CarlogComponent } from './carlog.component';
 import { BadRouteComponent } from './bad-route/bad-route.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './containers/home/home.component';
+import { AboutComponent } from './containers/about/about.component';
 
 
 import { TestComponent } from './test/test.component';
-import { VehicleGridComponent } from './test/vehicle-grid.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 
@@ -52,7 +51,6 @@ import { SharedModule } from '../../shared/shared.module';
     HomeComponent,
     AboutComponent,
     TestComponent,
-    VehicleGridComponent,
     LoginComponent,
     AdminComponent,
     WelcomeComponent,

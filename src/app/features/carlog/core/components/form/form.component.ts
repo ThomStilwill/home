@@ -1,12 +1,11 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DebugService } from '../../services/debug.service';
 import { EventEmitter } from 'events';
 
 @Component({
   selector: 'edit-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  templateUrl: './form.component.html'
 })
 export class FormComponent implements OnInit {
 
