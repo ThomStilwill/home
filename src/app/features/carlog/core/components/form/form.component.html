@@ -7,8 +7,14 @@
   <ng-content></ng-content>
 
   <div class="button-bar">
-    <button type="reset" (click)="cancel(null)">Cancel</button>
-    <button type="submit" [disabled]="!formGroup.valid">Save</button>
+    <button type="button">Special</button>
+    <button type="button">very long button name</button>
+    <button type="reset" (click)="cancel(null)">
+      <mat-icon title="Cancel" inline="true">clear</mat-icon>
+    </button>
+    <button type="submit" [disabled]="!formGroup.valid">
+      <mat-icon title="Save" inline="true">done</mat-icon>
+    </button>
   </div>
 </form>
 
