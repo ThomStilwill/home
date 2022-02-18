@@ -1,14 +1,19 @@
-import { forwardRef, Injectable, Input } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-@Injectable()
-export abstract class AbstractValueAccessor <T>
+@Component({
+  template: ''
+})
+export class AbstractValueAccessor <T>
                 implements ControlValueAccessor {
 
     _value: T = null;
     @Input() formControlName: string;
 
-    constructor(protected controlContainer: ControlContainer) {}
+    constructor(protected controlContainer: ControlContainer) {
+
+      console.log(controlContainer);
+    }
 
     get value(): T {
       return this._value;
@@ -45,3 +50,7 @@ export function MakeProvider(type: any) {
         multi: true
     };
 }
+function Directive() {
+  throw new Error('Function not implemented.');
+}
+

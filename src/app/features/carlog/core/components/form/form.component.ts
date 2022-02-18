@@ -37,6 +37,11 @@ export class FormComponent implements OnInit {
     return oneControlInvalid && (this.submitted || !this.formGroup.valid);
   }
 
+
+  validate(form) {
+    console.log('validate');
+  }
+
   submit(data) {
     this.submitted = true;
 

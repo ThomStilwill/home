@@ -1,13 +1,14 @@
 <form [formGroup]="formGroup" (submit)="submit(formGroup)">
 
   <div class="validation-banner" *ngIf="showBanner()">
-    <fa-icon [icon]="bannericon" class="alert-icon"></fa-icon> Please fix issues and try again.
+    <mat-icon inline="true">report</mat-icon>
+    Please fix issues and try again.
   </div>
 
   <ng-content></ng-content>
 
   <div class="button-bar">
-    <button type="button">Special</button>
+    <button type="button" (click)="validate(formGroup)">Validate</button>
     <button type="button">very long button name</button>
     <button type="reset" (click)="cancel(null)">
       <mat-icon title="Cancel" inline="true">clear</mat-icon>
@@ -20,5 +21,7 @@
 
 <pre *ngIf="debug">Values: {{ formGroup.value | json  }}
 </pre>
-<pre *ngIf="debug">Controls: {{ formGroup.controls }}
+<pre *ngIf="debug">Errors: {{ formGroup.errors | json  }}
 </pre>
+<!-- <pre *ngIf="debug">Controls: {{ formGroup.controls }}
+</pre> -->

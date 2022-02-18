@@ -18,8 +18,6 @@
                 <option [value]="schedule.id" *ngFor="let schedule of schedules"> {{ schedule.description }}</option>
               </select>
 
-
-
               <button type="button" class="btn-icon" *ngIf="!i && isScheduleSelected(i)" (click)="addSchedule()">
                 <mat-icon inline="true">add</mat-icon>
               </button>
