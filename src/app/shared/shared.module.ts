@@ -1,10 +1,14 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TextMaskDirective } from './directives/text-mask.directive';
+import { FormatNumberDirective } from './directives/number.directive';
+import { ValidationsComponent } from './components/validations/validations.component'
+
 @NgModule({
-  declarations: [],
+  declarations: [TextMaskDirective, FormatNumberDirective, ValidationsComponent],
   imports: [
     CommonModule
   ],
@@ -14,6 +18,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    DecimalPipe,
+    TextMaskDirective,
+    FormatNumberDirective,
+    ValidationsComponent
   ]
 })
 export class SharedModule {

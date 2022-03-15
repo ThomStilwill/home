@@ -65,7 +65,6 @@ export class TestformComponent implements OnInit {
   isScheduleSelected(index) {
     const control = (<FormArray>this.form.controls.schedules).controls[index];
     const value = control.value.id;
-    console.log('schedule is selected:' + value !== 'null');
     return value !== 'null';
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, ViewEncapsulation } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 import { DebugService } from '../../services/debug.service';
 import { EventEmitter } from 'events';
 
@@ -53,5 +53,22 @@ export class FormComponent implements OnInit {
 
   cancel(data) {
     this.cancelEvent.emit(data);
+  }
+
+  get fields(){
+    const fields: any[] = [];
+
+    for (let key in this.formGroup.controls) {
+      if (this.formGroup.controls.hasOwnProperty(key)) {
+
+        fields.push(
+          {
+            name: key,
+            errors: this.formGroup.controls[key].errors
+          }
+        );
+      }
+    }
+    return fields;
   }
 }

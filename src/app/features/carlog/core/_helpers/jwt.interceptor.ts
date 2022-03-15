@@ -23,8 +23,8 @@ export class JwtInterceptor implements HttpInterceptor {
           .pipe(
             tap(evt => {
                         if (evt instanceof HttpResponse) {
-                          console.log('---> status:', evt.status);
-                          console.log('---> filter:', request.params.get('filter'));
+                          //console.log('---> status:', evt.status);
+                          //console.log('---> filter:', request.params.get('filter'));
                         }}
                 )
           );

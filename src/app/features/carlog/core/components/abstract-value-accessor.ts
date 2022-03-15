@@ -11,8 +11,6 @@ export class AbstractValueAccessor <T>
     @Input() formControlName: string;
 
     constructor(protected controlContainer: ControlContainer) {
-
-      console.log(controlContainer);
     }
 
     get value(): T {
@@ -49,8 +47,5 @@ export function MakeProvider(type: any) {
         useExisting: forwardRef(() => type),
         multi: true
     };
-}
-function Directive() {
-  throw new Error('Function not implemented.');
 }
 

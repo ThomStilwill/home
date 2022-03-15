@@ -8,7 +8,7 @@ import { PlayComponent } from './pages/play/play.component';
 import { WorkComponent } from './pages/work/work.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { IconsComponent } from './components/icons/icons.component';
+import { GuideComponent } from './components/guide/guide.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { IconsComponent } from './components/icons/icons.component';
     PingComponent,
     PlayComponent,
     WorkComponent,
-    IconsComponent
+    GuideComponent
   ],
   imports: [
     CommonModule,
