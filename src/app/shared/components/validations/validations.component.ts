@@ -1,31 +1,20 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'validations',
   templateUrl: './validations.component.html',
   styleUrls: ['./validations.component.scss']
 })
-export class ValidationsComponent implements OnInit, OnChanges {
-  @Input() controlName: string;
-  @Input() form: FormGroup;
+export class ValidationsComponent implements OnInit {
+  @Input() control: AbstractControl;
   @Input() label: string;
 
-  private defaultMessages: object;
-  messages: {};
-
-  get control(): AbstractControl {
-    return this.form.controls[this.controlName];
-  }
-
+  private messages: object;
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-
-  }
-
   ngOnInit(): void {
-    this.defaultMessages = {
+    const defaultMessages = {
       required: `${this.label} is required.`,
       pattern:  `${this.label} is invalid.`,
       minlength:  `${this.label} is too short.`,
@@ -34,15 +23,11 @@ export class ValidationsComponent implements OnInit, OnChanges {
       min:  `${this.label} is too small.`,
       even:  `${this.label} is even.`,
     };
-
-    const messages = {...this.defaultMessages}; //, ...controlMessages};
-
-    if (messages) {
-      this.messages = messages;
-    }
+    this.messages= {...defaultMessages}; //, ...controlMessages};
   }
 
-  errors(){
+
+  get errorMessages(){
 
     if(!this.control.errors) {
       return [];

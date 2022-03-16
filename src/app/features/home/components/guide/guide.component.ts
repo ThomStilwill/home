@@ -29,6 +29,8 @@ export class GuideComponent implements OnInit {
       quantity: [67,Validators.required],
       count: [34555, [Validators.required,Validators.max(100),Validators.min(1000),this.EvenValidator]],
       decimals: [2],
+      readonly: [false],
+      disabled: [false],
       from: ['STX',[Validators.required, SpecialValidators.NotStx(),
          SpecialValidators.MustDifferFrom('to')
         ]],
