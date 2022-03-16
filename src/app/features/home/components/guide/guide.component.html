@@ -4,11 +4,17 @@
     <form [formGroup]="form">
 
       <h3>Test Form</h3>
-      <mat-error *ngIf="form.errors?.mustDiffer">
-        'To State' Must not match 'From State'
-      </mat-error>
-      <hr/>
 
+      <input-text
+        number
+        #element
+        formControlName="count"
+        label="Count"
+        hint="Just put in a number, plz!"
+        placeholder="how many?">
+    </input-text>
+
+<!--
       <mat-form-field>
         <mat-label>Phone</mat-label>
         <input matInput placeholder="Name" formControlName="name">
@@ -87,7 +93,7 @@
           'From State' and 'To State' must differ.
         </mat-error>
 
-      </mat-form-field>
+      </mat-form-field> -->
 
       <div mat-dialog-actions>
         <button mat-button color="primary" [disabled]="!form.valid" type="submit">Save</button>
@@ -95,8 +101,7 @@
     </form>
 
     <pre>{{form.value | json}}</pre>
-    <pre>Quantity: {{form.controls.quantity.errors | json}}</pre>
-    <pre>Form Errors: {{form.errors | json}}</pre>
-
+    <pre>Count Errors: {{form.controls.count.errors | json}}</pre>
+    <!-- <pre>Form Errors: {{form.errors | json}}</pre> -->
   </div>
 </main>

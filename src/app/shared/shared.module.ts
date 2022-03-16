@@ -6,11 +6,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TextMaskDirective } from './directives/text-mask.directive';
 import { FormatNumberDirective } from './directives/number.directive';
 import { ValidationsComponent } from './components/validations/validations.component'
+import { InputTextComponent } from './components/form/input-text.component';
 
 @NgModule({
-  declarations: [TextMaskDirective, FormatNumberDirective, ValidationsComponent],
+  declarations: [
+    TextMaskDirective,
+    FormatNumberDirective,
+    ValidationsComponent,
+    InputTextComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     CommonModule,
@@ -21,7 +27,8 @@ import { ValidationsComponent } from './components/validations/validations.compo
     DecimalPipe,
     TextMaskDirective,
     FormatNumberDirective,
-    ValidationsComponent
+    ValidationsComponent,
+    InputTextComponent
   ]
 })
 export class SharedModule {

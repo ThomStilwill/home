@@ -1,4 +1,4 @@
-import { Directive, ElementRef, forwardRef, Input, OnChanges, Provider, Renderer2} from '@angular/core'
+import { Directive, ElementRef, forwardRef, HostListener, Input, OnChanges, Provider, Renderer2} from '@angular/core'
 import { NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms'
 import { DecimalPipe } from '@angular/common'
 
@@ -14,11 +14,11 @@ interface IFormatNumberConfig {
 }
 
 @Directive({
-  host: {
-    '(input)': '_handleInput($event)',
-    '(blur)': '_handleBlur()',
-    '(focus)': '_handleFocus()'
-  },
+  // host: {
+  //   '(input)': 'onInput($event)',
+  //   '(blur)': 'onBlur()',
+  //   '(focus)': 'onFocus()'
+  // },
   selector: 'input[number]',
   exportAs: 'number',
   providers: [MASKEDINPUT_VALUE_ACCESSOR, DecimalPipe]
@@ -66,8 +66,8 @@ export class FormatNumberDirective implements ControlValueAccessor, OnChanges {
     this.config = {...this.default, ...this.numberConfig};
   }
 
-
-  _handleInput(e) {
+  @HostListener('input',['$event'])
+  onInput(e) {
     const originalValue = this.value;
     let value = e.target.value;
     console.log(`handle input: ${value}`);
@@ -90,11 +90,13 @@ export class FormatNumberDirective implements ControlValueAccessor, OnChanges {
     this.setFormatValue(value);
   }
 
-  _handleBlur(){
+  @HostListener('blur')
+  onBlur(){
     this.setFormatValue(this.value);
   }
 
-  _handleFocus(){
+  @HostListener('focus')
+  onFocus(){
     this._renderer.setProperty(this._elementRef.nativeElement, 'value', this.value)
     //this.setFormatValue(this.value);
   }
