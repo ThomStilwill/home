@@ -1,6 +1,5 @@
-import { Title } from '@angular/platform-browser';
-import { of, merge, from } from 'rxjs';
-import { mapTo, delay, concatMap } from 'rxjs/operators';
+import { of, from } from 'rxjs';
+import { delay, concatMap } from 'rxjs/operators';
 
 export default class General{
 
@@ -12,5 +11,11 @@ export default class General{
         .subscribe(y => {
             func(y)
         });
+    }
+
+    static iterateOver(object: any): any[] {
+      const keys = Object.keys(object);
+
+      return keys.map(key => object[key]);
     }
 }

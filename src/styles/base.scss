@@ -1,34 +1,20 @@
-// html, body {
-//   height: 100%;
-//   width: 100%;
-//   overflow: hidden;
-// }
-
-// html {
-//   font-family: Roboto,Arial, Helvetica, sans-serif;
-// }
-
-// body {
-//   margin: 0;
-//   background-color: #fafafa;
-// }
-
 * {
   margin:0;
   padding:0;
-  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 html{
-  height: 100%;
-  width: 100%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 62.5%;
 }
 
 body{
-  height: 100%;
-  width: 100%;
   font-size: 12pt;
   // background-color: $base-background-color;
   // color: $base-text-color;

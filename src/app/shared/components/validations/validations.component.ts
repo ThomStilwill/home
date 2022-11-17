@@ -9,6 +9,7 @@ import { AbstractControl } from '@angular/forms';
 export class ValidationsComponent implements OnInit {
   @Input() control: AbstractControl;
   @Input() label: string;
+  @Input() validations = [];
 
   private messages: object;
   constructor() { }
@@ -21,11 +22,9 @@ export class ValidationsComponent implements OnInit {
       maxlength:  `${this.label} is too long.`,
       max:  `${this.label} is too large.`,
       min:  `${this.label} is too small.`,
-      even:  `${this.label} is even.`,
     };
-    this.messages= {...defaultMessages}; //, ...controlMessages};
+    this.messages= Object.assign(defaultMessages, this.validations);
   }
-
 
   get errorMessages(){
 
@@ -42,10 +41,5 @@ export class ValidationsComponent implements OnInit {
     return messages;
   }
 
-  showValidationMessages() {
-    const show =  this.control && this.control.errors
-            && (this.control.touched); // || this.form.submitted);
-    return show;
-  }
 
 }

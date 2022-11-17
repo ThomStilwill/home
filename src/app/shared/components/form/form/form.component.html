@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup" (submit)="submit(formGroup)">
+
+  <div class="validation-banner" *ngIf="showBanner()">
+    <fa-icon [icon]="bannericon" class="alert-icon"></fa-icon> Please fix issues and try again.
+  </div>
+
+  <ng-content></ng-content>
+
+  <div class="button-bar">
+    <button type="reset" (click)="cancel()">Cancel</button>
+    <button type="submit" [disabled]="!formGroup.valid">Save</button>
+  </div>
+</form>
+
+<pre *ngIf="debug">Values: {{ formGroup.value | json  }}
+</pre>
+<pre *ngIf="debug">Controls: {{ formGroup.controls }}
+</pre>

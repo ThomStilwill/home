@@ -19,7 +19,7 @@ interface IFormatNumberConfig {
   //   '(blur)': 'onBlur()',
   //   '(focus)': 'onFocus()'
   // },
-  selector: 'input[number]',
+  selector: '[number]',
   exportAs: 'number',
   providers: [MASKEDINPUT_VALUE_ACCESSOR, DecimalPipe]
 })

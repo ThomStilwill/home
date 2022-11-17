@@ -5,62 +5,33 @@
 
       <h3>Test Form</h3>
 
-      <input-text
-        number
+      <text
         formControlName="count"
         label="Count"
         hint="Just put in a number, plz!"
         placeholder="how many?"
+        [validations]="countValidations"
         >
-      </input-text>
+      </text>
 
-      <input-text number formControlName="name" label="Name" ></input-text>
-      <input-text formControlName="amount" label="Amount" number ></input-text>
-      <input-text formControlName="decimals" label="Decimals" number ></input-text>
-      <input-text formControlName="quantity" label="Quantity" number="{decimals:4, integers:3}" ></input-text>
+      <input type="checkbox" formControlName="disabled" > Disable
+      <input type="checkbox" formControlName="readonly" >Readonly
 
-      <!-- <input type="checkbox" formControlName="disabled" > Disable <br/>
-      <input type="checkbox" formControlName="readonly" >Readonly <br/> -->
+      <br/>
 
+      <text formControlName="name" label="Name" [validations]="nameValidations"></text>
+      <text formControlName="amount" label="Amount" ></text>
+      <text formControlName="decimals" label="Decimals" ></text>
+      <text formControlName="quantity" label="Quantity" ></text>
 
-      <mat-form-field>
-        <mat-label>From</mat-label>
-        <mat-select placeholder="Select" formControlName="from" placeholder="From State">
-          <mat-option value=""></mat-option>
-          <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-        </mat-select>
-        <mat-error *ngIf="form.controls.from.errors?.required">
-          Required
-        </mat-error>
-        <mat-error *ngIf="form.controls.from.errors?.notStx">
-          Must not be STX
-        </mat-error>
-        <mat-error *ngIf="form.controls.from.errors?.mustDifferFrom">
-          Must not match 'To State'
-        </mat-error>
-        <mat-error *ngIf="form.errors?.mustDiffer">
-          'From State' and 'To State' must differ.
-        </mat-error>
-
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>To</mat-label>
-        <mat-select placeholder="Select" formControlName="to" placeholder="To State">
-          <mat-option value=""></mat-option>
-          <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-        </mat-select>
-        <mat-error *ngIf="form.controls.to.errors?.required">
-          Required
-        </mat-error>
-        <mat-error *ngIf="form.controls.to.errors?.mustDifferFrom">
-          Must not match 'From State'
-        </mat-error>
-        <mat-error *ngIf="form.errors?.mustDiffer">
-          'From State' and 'To State' must differ.
-        </mat-error>
-
-      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="space-between none" fxLayoutGap="2em" >
+        <div fxFlex="50">
+          <dropdown formControlName="from" label="From" placeholder="From State" [items]="states" [validations]="stateValidations"></dropdown>
+        </div>
+        <div fxFlex="50">
+          <dropdown formControlName="to" label="To" placeholder="From State" [items]="states" [validations]="stateValidations"></dropdown>
+        </div>
+      </div>
 
       <div mat-dialog-actions>
         <button mat-button color="primary" [disabled]="!form.valid" type="submit">Save</button>
@@ -68,7 +39,7 @@
     </form>
 
     <pre>{{form.value | json}}</pre>
-    <pre>Count Errors: {{form.controls.count.errors | json}}</pre>
+    <pre>{{formstate | json}}</pre>
     <!-- <pre>Form Errors: {{form.errors | json}}</pre> -->
   </div>
 </main>

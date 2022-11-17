@@ -15,17 +15,20 @@ export class LinksComponent implements OnInit, AfterViewInit {
   constructor(private service: DataService) { }
   time = new Date();
   links: Link[] = [];
+  weather:Link[] = [];
 
+  /*
   values = [
-    { id: 'https://forecast7.com/en/41d68n72d86/plainville/', name: 'Plainville, CT' },
-    { id: 'https://forecast7.com/en/42d38n76d87/watkins-glen/', name: 'Watkins Glen, NY' },
-    { id: 'https://forecast7.com/en/44d84n93d30/bloomington/', name: 'Bloomington, MN' },
-    { id: 'https://forecast7.com/en/35d37n119d02/bakersfield/', name: 'Bakersfield, CA' },
     { id: 'https://forecast7.com/en/29d42n98d49/san-antonio/', name: 'San Antonio, TX' },
-    { id: 'https://forecast7.com/en/28d36n82d69/hudson/', name: 'Hudson, FL' }
+    { id: 'https://forecast7.com/en/41d68n72d86/plainville/', name: 'Plainville, CT' },
+    { id: 'https://forecast7.com/en/35d37n119d02/bakersfield/', name: 'Bakersfield, CA' },
+    { id: 'https://forecast7.com/en/44d84n93d30/bloomington/', name: 'Bloomington, MN' },
+    { id: 'https://forecast7.com/en/28d36n82d69/hudson/', name: 'Hudson, FL' },
+    { id: 'https://forecast7.com/en/42d38n76d87/watkins-glen/', name: 'Watkins Glen, NY' }
   ];
+*/
 
-  selectedLocation = this.values[0].id;
+  selectedLocation: string;
 
   loadWeather(id:String) {
     let element: any;
@@ -39,8 +42,8 @@ export class LinksComponent implements OnInit, AfterViewInit {
   setWeatherFromName(newVal:any){
     const x = document.getElementsByClassName('weatherwidget-io');
     x[0].setAttribute('href', newVal  + '?unit=us');
-    const dcName =  this.values.filter(value => {
-      return value.id === newVal;
+    const dcName =  this.weather.filter(value => {
+      return value.href === newVal;
     });
 
     x[0].setAttribute('data-label_1', dcName[0].name);
@@ -83,6 +86,11 @@ export class LinksComponent implements OnInit, AfterViewInit {
       this.links = links;
     });
 
-    this.setWeatherFromName(this.values[0].id);
+    this.service.getLinks('weather').pipe(
+      first()).subscribe(weather => {
+      this.weather = weather;
+      this.selectedLocation = this.weather[0].href;
+      this.setWeatherFromName(this.selectedLocation);
+    });
   }
 }
