@@ -1,45 +1,23 @@
 <mat-form-field appearance="fill">
-
-  <mat-label>{{label}}</mat-label>
-
   <input
       matInput
       #input
       formControlName="formControlName"
       placeholder="{{placeholder}}"
       [value]="value"
+      [errorStateMatcher]="errorMatcher()"
+
+      [readonly]="readonly"
+      [disabled]="disabled"
 
       (input)="onChange($event.target.value)"
-      (keyup)="onChange($event.target.value)"
       (focus)="$event.target.select()"
-      (blur)="onTouched()" />
-
-      <!-- [readonly]="readonly"
-      [disabled]="disabled" -->
-
+      (blur)="onTouched()"
+      />
   <mat-hint>{{hint}}</mat-hint>
-
-  <!-- <mat-error *ngIf="control.errors?.required">
-    required
-  </mat-error>
-
-  <mat-error *ngIf="control.errors?.max">
-    max
-  </mat-error>
-
-  <mat-error *ngIf="control.errors?.min">
-    min
-  </mat-error>
-
-  <mat-error *ngIf="control.errors?.even">
-    even
-  </mat-error> -->
-
-  <!-- *ngIf="control.errors" -->
-
+  <mat-label>{{label}}</mat-label>
   <mat-error>
-    <validations [control]="control" [label]="label">
+    <validations [control]="control" [label]="label"  [validations]="validations">
     </validations>
   </mat-error>
-
 </mat-form-field>

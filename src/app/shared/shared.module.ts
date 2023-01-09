@@ -7,13 +7,15 @@ import { TextMaskDirective } from './directives/text-mask.directive';
 import { FormatNumberDirective } from './directives/number.directive';
 import { ValidationsComponent } from './components/validations/validations.component'
 import { InputTextComponent } from './components/form/input-text.component';
+import { InputSelectComponent } from './components/form/input-select.component';
 
 @NgModule({
   declarations: [
     TextMaskDirective,
     FormatNumberDirective,
     ValidationsComponent,
-    InputTextComponent],
+    InputTextComponent,
+    InputSelectComponent],
   imports: [
     CommonModule,
     MaterialModule
@@ -28,7 +30,8 @@ import { InputTextComponent } from './components/form/input-text.component';
     TextMaskDirective,
     FormatNumberDirective,
     ValidationsComponent,
-    InputTextComponent
+    InputTextComponent,
+    InputSelectComponent
   ]
 })
 export class SharedModule {

@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
   }
 
   ngOnInit() {
-    this.service.getLinks('google').pipe(
+    this.service.getItems<Link>('links-google').pipe(
       first()).subscribe(links => {
       this.googleLinks = links;
     });
