@@ -103,6 +103,12 @@ module.exports = function(app) {
   //   }
   // })
 
+
+
+  app.use(virtualDirPath + 'info', (req, res, next)=> {
+    res.send(`request: ${JSON.stringify(req.headers)}`);
+  })
+
   app.use(virtualDirPath + 'api', jsonServer.router(dbpath))
 
   app.use(express.static(webpath));

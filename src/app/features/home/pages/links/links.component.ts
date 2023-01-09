@@ -32,7 +32,7 @@ export class LinksComponent implements OnInit, AfterViewInit {
     const x = document.getElementsByClassName('weatherwidget-io');
     x[0].setAttribute('href', newVal  + '?unit=us');
     const dcName =  this.values.filter(value => {
-      return value.id === newVal;
+      return value.name === newVal;
     });
 
     x[0].setAttribute('data-label_1', dcName[0].name);
