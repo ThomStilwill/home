@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import  General from '../../../../shared/utilities/general';
 import * as SpecialValidators from 'src/app/shared/utilities/special-validators';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
-  selector: 'app-guide',
-  templateUrl: './guide.component.html',
-  styleUrls: ['./guide.component.scss']
+  selector: 'test-form',
+  templateUrl: './testform.component.html',
+  styleUrls: ['./testform.component.scss']
 })
-export class GuideComponent implements OnInit {
+export class TestFormComponent implements OnInit {
 
   form: FormGroup;
   states = ['CT', 'TX', 'CA', 'VI', 'STX'].map(state => {

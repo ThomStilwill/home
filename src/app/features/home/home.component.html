@@ -36,13 +36,16 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-
 <mat-menu #homeMenu="matMenu">
   <a mat-menu-item [routerLink]="['work']">Work</a>
   <a mat-menu-item [routerLink]="['play']">Play</a>
   <a mat-menu-item [routerLink]="['ping']">Ping</a>
-  <a mat-menu-item [routerLink]="['guide']">Guide</a>
+  <a mat-menu-item [routerLink]="['guide']" [matMenuTriggerFor]="subMenu">Guide</a>
   <a mat-menu-item [routerLink]="['/carlog']">Carlog</a>
+</mat-menu>
+
+<mat-menu #subMenu="matMenu">
+  <a mat-menu-item [routerLink]="['guide/testform']">Test Form</a>
 </mat-menu>
 
 <mat-menu #googleMenu="matMenu">
@@ -63,9 +66,5 @@
 
 <mat-menu #networkMenu="matMenu">
     <a mat-menu-item href="http://sol:5000/" target="_blank">Sol (NAS)</a>
-    <a mat-menu-item href="https://my.ooma.com/dashboard" target="_blank">Ooma Dashboard</a>
-    <a mat-menu-item href="http://192.168.1.1" target="_blank">Nighthawk</a>
-    <a mat-menu-item href="http://192.168.1.49" target="_blank">HP 8100 Printer</a>
-    <a mat-menu-item href="http://192.168.1.202" target="_blank">Netgear Switch GS108T</a>
-    <a mat-menu-item href="http://192.168.1.24" target="_blank">Netgear Extender EX6200</a>
+    <a mat-menu-item href="http://192.168.1.1" target="_blank">UDM</a>
 </mat-menu>

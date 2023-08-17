@@ -1,7 +1,6 @@
 {
   "links-home": [
     {"href":"https://www.wunderground.com/weather/us/tx/san-antonio", "name":"Weather Underground"},
-    {"href":"https://darksky.net/forecast/29.4246,-98.4946/us12/en", "name":"Darkskys"},
     {"href":"https://www.eversource.com/clp/outage/outagemap.aspx", "name":"CT Power Outages"},
     {"href":"https://outagemap.cpsenergy.com/", "name":"TX Power Outages"},
     {"divider":"yes"},
@@ -23,14 +22,6 @@
     {"href":"https://plus.google.com", "name": "Google+"},
     {"href":"https://play.google.com", "name": "Play Store"}
 
-  ],
-  "links-weather":[
-    { "href": "https://forecast7.com/en/29d42n98d49/san-antonio/", "name": "San Antonio, TX" },
-    { "href": "https://forecast7.com/en/41d68n72d86/plainville/", "name": "Plainville, CT" },
-    { "href": "https://forecast7.com/en/35d37n119d02/bakersfield/", "name": "Bakersfield, CA" },
-    { "href": "https://forecast7.com/en/44d84n93d30/bloomington/", "name": "Bloomington, MN" },
-    { "href": "https://forecast7.com/en/28d36n82d69/hudson/", "name": "Hudson, FL" },
-    { "href": "https://forecast7.com/en/42d38n76d87/watkins-glen/", "name": "Watkins Glen, NY" }
   ],
   "weather": [
     {

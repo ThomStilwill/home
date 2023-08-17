@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GuideComponent } from './components/guide/guide.component';
+import { TestFormComponent } from './components/testform/testform.component';
 import { HomeComponent } from './home.component';
+import { GuideComponent } from './pages/guide/guide.component';
 import { LinksComponent } from './pages/links/links.component';
 import { PingComponent } from './pages/ping/ping.component';
 import { PlayComponent } from './pages/play/play.component';
@@ -16,8 +17,8 @@ const routes: Routes = [
           { path: 'play', component: PlayComponent},
           { path: 'work', component: WorkComponent},
           { path: 'ping', component: PingComponent},
+          { path: 'guide/testform', component: TestFormComponent},
           { path: 'guide', component: GuideComponent}
-
         ]
   }
 ];

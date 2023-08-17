@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { GuideComponent } from './guide.component';
+import { TestFormComponent } from './testform.component';
 
 describe('IconsComponent', () => {
-  let component: GuideComponent;
-  let fixture: ComponentFixture<GuideComponent>;
+  let component: TestFormComponent;
+  let fixture: ComponentFixture<TestFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GuideComponent ]
+      declarations: [ TestFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GuideComponent);
+    fixture = TestBed.createComponent(TestFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

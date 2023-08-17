@@ -28,13 +28,13 @@ export class LinksComponent implements OnInit, AfterViewInit {
     parentElement.parentNode.insertBefore(element, parentElement);
   }
 
-  setWeatherFromName(newVal:any){
+  setWeatherFromName(id:string){
     const x = document.getElementsByClassName('weatherwidget-io');
-    x[0].setAttribute('href', newVal  + '?unit=us');
     const dcName =  this.values.filter(value => {
-      return value.name === newVal;
+      return value.id === id;
     });
 
+    x[0].setAttribute('href', dcName[0].id  + '?unit=us');
     x[0].setAttribute('data-label_1', dcName[0].name);
     this.loadWeather('weatherwidget-io-js');
   }
@@ -79,7 +79,7 @@ export class LinksComponent implements OnInit, AfterViewInit {
       first()).subscribe(values => {
       this.values = values;
       this.selectedLocation = this.values[0].id;
-      this.setWeatherFromName(this.values[0].id);
+      this.setWeatherFromName(this.selectedLocation);
     });
   }
 }
