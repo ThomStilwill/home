@@ -12,8 +12,7 @@ import { TestFormComponent } from './components/testform/testform.component';
 import { GuideComponent } from './pages/guide/guide.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { LinksReducer } from './store/link/link.reducers';
-import { LinksEffects } from './store/link/link.effects';
+import { LinksReducer, LinksEffects } from './store/link';
 
 @NgModule({
   declarations: [
@@ -30,6 +29,8 @@ import { LinksEffects } from './store/link/link.effects';
     SharedModule,
     CoreModule,
     HomeRoutingModule,
+    // StoreModule.forFeature('links', {links: LinksReducer}),
+    // EffectsModule.forFeature([LinksEffects]),
 
   ]
 })

@@ -1,6 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as Actions from './link.actions';
-import { LinksState } from './link.store';
+import { LinksState, LinkActions } from './link.store';
 
 export const initialState: LinksState = {
   list: [],
@@ -10,44 +9,44 @@ export const initialState: LinksState = {
 
 export const LinksReducer = createReducer(
     initialState,
-    on(Actions.LoadLinks, (state) => ({
+    on(LinkActions.loadlinks, (state) => ({
       ...state, 
       loading: state.loading
     })),
-    on(Actions.LoadLinksSuccess,(state,action) => ({
+    on(LinkActions.loadlinkssuccess,(state,action) => ({
       ...state, 
       list: action.list, 
       loading:'Links Loaded.'
     })),
-    on(Actions.LoadLinksFailure,(state,action) => ({
+    on(LinkActions.loadlinksfailure,(state,action) => ({
       ...state, 
       error:action.error,
       loading: 'Links Error'
     })),
-    on(Actions.AddLink, (state) => ({
+    on(LinkActions.addlink, (state) => ({
       ...state, 
       loading:'Adding Link...' 
     })),
-    on(Actions.AddLinksuccess,(state,action) => ({
+    on(LinkActions.addlinksuccess,(state,action) => ({
       ...state, 
       list: [...state.list, action.Link],
       loading: ''
     })),
-    on(Actions.AddLinkFailure,(state,action) => ({
+    on(LinkActions.addlinkfailure,(state,action) => ({
       ...state, 
       loading:'',
       error:action.error
     })),
 
-    on(Actions.DeleteLink, (state) => ({
+    on(LinkActions.deletelink, (state) => ({
       ...state, 
       loading:'Deleting Link...' 
     })),
-    on(Actions.DeleteLinksuccess,(state,action) => ({
+    on(LinkActions.deletelinksuccess,(state,action) => ({
       ...state, 
       list: state.list.filter(x=>x.id !== action.id), 
       loading:''})),
-    on(Actions.DeleteLinkFailure,(state,action) => ({
+    on(LinkActions.deletelinkfailure,(state,action) => ({
       ...state, 
       loading:'',
       error:action.error

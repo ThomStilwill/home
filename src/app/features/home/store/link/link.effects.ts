@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType  } from '@ngrx/effects';
 import { of } from "rxjs";
 import { map, catchError, mergeMap, tap, delay } from "rxjs/operators";
 import { DataService } from "../../../../shared/services/data.service";
-import  * as actions  from "./link.actions";
+import { LinkActions }  from "./link.actions";
 import { Link } from "./link.model";
 
 @Injectable()
@@ -16,18 +16,18 @@ export class LinksEffects{
 
     loadLinks$ = createEffect(() => 
         this.actions$.pipe(
-            ofType(actions.LoadLinks),
+            ofType(LinkActions.loadlinks),
             mergeMap(() => 
                 this.service.getItems<Link>('links-home')
                    .pipe(
                     tap(_=>console.log('Success')),
                     delay(1000),
                     map(links => 
-                        actions.LoadLinksSuccess({ loading:'Success',list: links})
+                        LinkActions.loadlinkssuccess({ loading:'Success',list: links})
                         )
                     )
                 ),
-                catchError(error => of(actions.LoadLinksFailure({loading:'Fail',error})),
+                catchError(error => of(LinkActions.loadlinksfailure({loading:'Fail',error})),
                 )
             )
         );

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpXhrBackend } from '@angular/common/http';
 import { LoadingService } from './loading.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { delay, catchError, finalize, tap } from 'rxjs/operators';
+
+
 
 @Injectable()
 export class HttpService extends HttpClient {
@@ -74,7 +76,7 @@ export class HttpService extends HttpClient {
   }
 
   private onCatch(error: any, caught: Observable<any>): Observable<any> {
-    return Observable.throw(error);
+    return new Observable();
   }
 
   private onSuccess(res: Response): void {

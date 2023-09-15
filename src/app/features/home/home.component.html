@@ -3,23 +3,23 @@
 
   <header>
   <mat-toolbar>
-    <mat-toolbar-row>
+    <mat-toolbar-row class="layout layout-horizontal justify-expand">
       <h2 [routerLink]="['/']">{{title}}</h2>
-      <div fxFlex fxLayout fxLayoutAlign="flex-end">
-        <ul fxLayout fxLayoutGap="2px">
+      <div class="layout layout-horizontal justify-right">
+        <ul class="layout layout-horizontal">
             <li><button mat-button [matMenuTriggerFor]="homeMenu" routerLinkActive="active-link">Home</button></li>
             <li><button mat-button [matMenuTriggerFor]="googleMenu">Google</button></li>
             <li><button mat-button [matMenuTriggerFor]="managementMenu">Coding</button></li>
             <li><button mat-button [matMenuTriggerFor]="networkMenu">Network</button></li>
         </ul>
-      </div>
-      <div>
+
         <form ngNoForm  role="search" method="get" action="http://www.google.com/search" target="_blank">
           <mat-form-field appearance="fill">
             <input matInput name="q" type="search" results="5" autosave="AutoSaveValue" placeholder="Search" class="">
           </mat-form-field>
         </form>
-      </div>
+      
+    </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>

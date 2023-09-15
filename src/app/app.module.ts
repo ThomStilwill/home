@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppConfigModule } from './app-config.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './features/home/home.module';
-import { CoreModule } from '@angular/flex-layout';
 import { DataService } from './shared/services/data.service';
 import { AppComponent } from './app.component';
 import { CarlogModule } from './features/carlog/carlog.module';
@@ -18,8 +17,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { LinksReducer } from './features/home/store/link/link.reducers';
-import { LinksEffects } from './features/home/store/link/link.effects';
+import { LinksReducer, LinksEffects } from './features/home/store/link';
+import { AppReducer } from './store/app.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,15 +28,16 @@ import { LinksEffects } from './features/home/store/link/link.effects';
     HttpClientModule,
     AppConfigModule,
     AppRoutingModule,
-    CoreModule,
     HomeModule,
     CarlogModule,
     SharedModule.forRoot(),
+    
     // StoreModule.forRoot({}, {}),
     // EffectsModule.forRoot([]),
     
-    StoreModule.forFeature('links', {links: LinksReducer}),
-    EffectsModule.forFeature([LinksEffects]),
+    StoreModule.forRoot({links: LinksReducer}),
+    EffectsModule.forRoot([LinksEffects]),
+
 
     StoreDevtoolsModule.instrument({ 
       name: 'DevTools & Debugging in NgRx',

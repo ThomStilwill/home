@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { Store, select } from '@ngrx/store'
+import { Store, createFeatureSelector, createSelector, select } from '@ngrx/store'
 import { filter, first, map } from 'rxjs/operators'
 import { Link } from '../../store/link/link.model'
 import { Weather } from 'src/app/shared/models/weather'
 import { DataService } from 'src/app/shared/services/data.service'
-import {  LoadLinks, LinksState,linksSelector, loadSelector} from '../../store/link'
+import { LinkActions, LinksState,linksSelector, loadSelector} from '../../store/link'
 import { pipe } from 'rxjs'
 
 
@@ -17,10 +17,9 @@ declare var fitty: any
 })
 export class LinksComponent implements OnInit, OnDestroy {
 
-  links$ = this.store.pipe(select(linksSelector))
-  loading$ = this.store.pipe(select(loadSelector))
-
-  loading: string;
+  links$ = this.store.pipe(select(linksSelector));
+  loading$ = this.store.pipe(select(loadSelector));
+  
 
   time = new Date()
   links: Link[] = []
@@ -28,11 +27,7 @@ export class LinksComponent implements OnInit, OnDestroy {
   selectedLocation:string
 
   constructor(private service: DataService, private store: Store<LinksState>) {
-    
-    this.loading$.subscribe(message => {
-      this.loading = message
-    })
-
+   
   }
 
    ngOnDestroy() {
@@ -41,7 +36,7 @@ export class LinksComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.store.dispatch(LoadLinks({loading:'loading links'}))
+    this.store.dispatch(LinkActions.loadlinks({loading:'loading links'}))
 
     this.service.getItems<Weather>('weather').pipe(
       first()).subscribe(values => {

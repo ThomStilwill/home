@@ -56,6 +56,6 @@ export class AuthorizationDirective implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    this.stop$.next();
+    this.stop$.next(false);
   }
 }

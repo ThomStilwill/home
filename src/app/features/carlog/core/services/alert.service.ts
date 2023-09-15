@@ -51,6 +51,6 @@ export class AlertService {
     }
 
     clear() {
-        this.subject.next();
+        this.subject.next(null);
     }
 }

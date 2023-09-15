@@ -10,5 +10,5 @@ export const initialState: AppState = {
 };
 
 export const AppReducer = createReducer(
-    initialState,
+    initialState
 );    
