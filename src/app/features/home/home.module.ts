@@ -10,6 +10,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { TestFormComponent } from './components/testform/testform.component';
 import { GuideComponent } from './pages/guide/guide.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { LinksReducer } from './store/link/link.reducers';
+import { LinksEffects } from './store/link/link.effects';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { GuideComponent } from './pages/guide/guide.component';
     CommonModule,
     SharedModule,
     CoreModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+
   ]
 })
 export class HomeModule { }

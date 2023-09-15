@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
-import { Link } from 'src/app/shared/models/link';
+import { Link } from '../../features/home/store/link/link.model';
 import { DataService } from 'src/app/shared/services/data.service';
 import General from 'src/app/shared/utilities/general';
 

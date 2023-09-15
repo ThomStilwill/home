@@ -7,9 +7,15 @@
 </div>
 
 <div id="links">
+  <h2>Links!</h2>
   <br/>
+
+  <div class="loading-wrapper">
+    <span >{{(loading$ | async)}}</span>
+  </div>
+
   <ul>
-      <li *ngFor="let link of links">
+      <li *ngFor="let link of links$ | async">
         <a mat-button target="_blank" href="{{link.href}}">{{link.name}}</a>
       </li>
   </ul>

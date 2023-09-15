@@ -14,6 +14,12 @@ import { DataService } from './shared/services/data.service';
 import { AppComponent } from './app.component';
 import { CarlogModule } from './features/carlog/carlog.module';
 import { Router } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { LinksReducer } from './features/home/store/link/link.reducers';
+import { LinksEffects } from './features/home/store/link/link.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +32,18 @@ import { Router } from '@angular/router';
     CoreModule,
     HomeModule,
     CarlogModule,
-    SharedModule.forRoot()
+    SharedModule.forRoot(),
+    // StoreModule.forRoot({}, {}),
+    // EffectsModule.forRoot([]),
+    
+    StoreModule.forFeature('links', {links: LinksReducer}),
+    EffectsModule.forFeature([LinksEffects]),
+
+    StoreDevtoolsModule.instrument({ 
+      name: 'DevTools & Debugging in NgRx',
+      maxAge: 25, 
+      logOnly: environment.production 
+    })
   ],
   providers: [ DataService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS,
