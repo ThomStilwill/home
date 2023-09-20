@@ -20,10 +20,13 @@ export interface HomeState {
   link: LinkState
 }
 
+
+
+
 const featureSelector = createFeatureSelector<HomeState>('home')
 const selector = (selectorFn: <T>(state: HomeState) => T) => createSelector(featureSelector, selectorFn);
 
-export const linksSelector = createSelector(featureSelector, state => state.link.links)
-export const stationSelector = createSelector(featureSelector, state => state.link.stations)
-export const progressSelector = createSelector(featureSelector, state => state.progress.message)
+export const linksSelector = createSelector(featureSelector, (state: HomeState) => state.link.links)
+export const stationSelector = createSelector(featureSelector, (state: HomeState) => state.link.stations)
+export const progressSelector = createSelector(featureSelector, (state: HomeState) => state.progress.message)
  

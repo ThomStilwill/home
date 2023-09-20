@@ -13,6 +13,7 @@ import { GuideComponent } from './pages/guide/guide.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HomeFeature, LinkEffects, ProgressEffects } from './store';
+import { LoadingMessageComponent } from './loading-message/loading-message.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HomeFeature, LinkEffects, ProgressEffects } from './store';
     PlayComponent,
     WorkComponent,
     TestFormComponent,
-    GuideComponent
+    GuideComponent,
+    LoadingMessageComponent
   ],
   imports: [
     CommonModule,

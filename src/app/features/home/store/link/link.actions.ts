@@ -1,11 +1,11 @@
-import { createActionGroup, props } from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { Link } from './link.model';
 import { WeatherStation } from './weather.model';
 
 export const LinkActions = createActionGroup({
     source: "Home",
     events: {
-        'LoadLinks' : props<{loading: string}>(),
+        'LoadLinks' : emptyProps(),
         'LoadLinksSuccess' : props<{links: Link[]}>(),
         'LoadLinksFailure': props<{error: Error}>(),
         'AddLink' : props<{Link: Link}>(),
@@ -14,7 +14,7 @@ export const LinkActions = createActionGroup({
         'DeleteLink' : props<{id: string}>(),
         'DeleteLinksuccess' : props<{id: string}>(),
         'DeleteLinkFailure' : props<{error: Error}>(),
-        'LoadWeather' : props<{loading: string}>(),
+        'LoadWeather' : emptyProps(),
         'LoadWeatherSuccess' : props<{loading: string, stations: WeatherStation[]}>(),
         'LoadWeatherFailure': props<{loading: string , error: Error}>(),
     }

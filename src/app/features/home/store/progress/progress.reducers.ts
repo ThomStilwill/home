@@ -10,14 +10,14 @@ export const initialState: ProgressState = {
 export const progressReducer= createReducer(
     initialState,
     
-    on(ProgressActions.showProgress, (state) => ({
+    on(ProgressActions.showProgress, (state, action) => ({
         ...state, 
-        message: state.message
+        message: action.message
     })),
 
-    on(ProgressActions.hideProgress, (state) => ({
+    on(ProgressActions.hideProgress, (state, action) => ({
         ...state,
-        message: state.message
+        message: action.message
     }))
 )
 

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType  } from '@ngrx/effects';
 import { of } from "rxjs";
-import { map, catchError, mergeMap, tap, delay } from "rxjs/operators";
+import { map, catchError, mergeMap, tap, delay, concatMap } from "rxjs/operators";
 import { DataService } from "../../../../shared/services/data.service";
 import { LinkActions }  from "./link.actions";
 import { Link } from "./link.model";
@@ -18,10 +18,10 @@ export class LinkEffects{
         this.actions$.pipe(
             ofType(LinkActions.loadLinks),
             delay(3000),
-            mergeMap(() => 
+            concatMap((dump) => 
                 this.service.getItems<Link>('links-home')
                    .pipe(
-                    tap(_=>console.log('Success')),
+                    tap(_=>console.log(dump)),
                     map(links => 
                         LinkActions.loadLinksSuccess({ links: links})
                         )
@@ -35,11 +35,11 @@ export class LinkEffects{
         loadWeather$ = createEffect(() => 
         this.actions$.pipe(
             ofType(LinkActions.loadWeather),
-            delay(3000),
-            mergeMap(() => 
+            delay(2000),
+            concatMap((dump) => 
                 this.service.getItems<Link>('weather')
                    .pipe(
-                    tap(_=>console.log('Success')),
+                    tap(_=>console.log(dump)),
                     map(links => 
                         LinkActions.loadWeatherSuccess({ loading:'Stations loaded.', stations: links})
                         )
@@ -49,5 +49,4 @@ export class LinkEffects{
                 )
             )
         );
-
 }
