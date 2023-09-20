@@ -7,7 +7,6 @@ import { ActivatorService } from './services/activator.service';
 import { LoadingComponent } from './loading/loading.component';
 import { LoadingService } from './services/loading.service';
 import { HttpService } from './services/http.service';
-import { NgxMaskModule } from 'ngx-mask-2';
 
 import { MinusToParensPipe } from './minustoparens.pipe';
 
@@ -35,8 +34,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
-    NgxMaskModule.forRoot()
+    SharedModule
   ],
   providers: [ModalService,
               ActivatorService,
@@ -75,6 +73,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
             CommonModule
           ]
 })
+
 export class CoreModule {
 
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

@@ -1,54 +1,73 @@
-import { createReducer, on } from '@ngrx/store';
-import { LinksState, LinkActions } from './link.store';
+import { createReducer, on } from "@ngrx/store";
+import { LinkState, LinkActions } from "../home.store";
 
-export const initialState: LinksState = {
-  list: [],
-  loading: '',
-  error: undefined
+export const initialState: LinkState = {
+    links: [],
+    stations: [],
+    error: undefined
 };
 
-export const LinksReducer = createReducer(
-    initialState,
-    on(LinkActions.loadlinks, (state) => ({
-      ...state, 
-      loading: state.loading
-    })),
-    on(LinkActions.loadlinkssuccess,(state,action) => ({
-      ...state, 
-      list: action.list, 
-      loading:'Links Loaded.'
-    })),
-    on(LinkActions.loadlinksfailure,(state,action) => ({
-      ...state, 
-      error:action.error,
-      loading: 'Links Error'
-    })),
-    on(LinkActions.addlink, (state) => ({
-      ...state, 
-      loading:'Adding Link...' 
-    })),
-    on(LinkActions.addlinksuccess,(state,action) => ({
-      ...state, 
-      list: [...state.list, action.Link],
-      loading: ''
-    })),
-    on(LinkActions.addlinkfailure,(state,action) => ({
-      ...state, 
-      loading:'',
-      error:action.error
-    })),
-
-    on(LinkActions.deletelink, (state) => ({
-      ...state, 
-      loading:'Deleting Link...' 
-    })),
-    on(LinkActions.deletelinksuccess,(state,action) => ({
-      ...state, 
-      list: state.list.filter(x=>x.id !== action.id), 
-      loading:''})),
-    on(LinkActions.deletelinkfailure,(state,action) => ({
-      ...state, 
-      loading:'',
-      error:action.error
-    }))
-);    
+export const linkReducer =  createReducer(
+      initialState,
+      on(LinkActions.loadLinks, (state) => ({
+        ...state, 
+        //loading: state.loading
+      })),
+      on(LinkActions.loadLinksSuccess,(state,action) => ({
+        ...state, 
+        links: action.links, 
+        //loading: action.loading
+      })),
+      on(LinkActions.loadLinksFailure,(state,action) => ({
+        ...state, 
+        error:action.error,
+        //loading: action.loading
+      })),
+  
+      on(LinkActions.loadWeather, (state) => ({
+        ...state, 
+        //loading: state.loading
+      })),
+      on(LinkActions.loadWeatherSuccess,(state,action) => ({
+        ...state, 
+        stations: action.stations, 
+        //loading: action.loading
+      })),
+      on(LinkActions.loadWeatherFailure,(state,action) => ({
+        ...state, 
+        error:action.error,
+        //loading: action.loading
+      })),
+  
+  
+      // on(LinkActions.addLink, (state) => ({
+      //   ...state, 
+      //   loading:'Adding Link...' 
+      // })),
+      // on(LinkActions.addLinksuccess,(state,action) => ({
+      //   ...state, 
+      //   links: [...state.links, action.Link],
+      //   loading: ''
+      // })),
+      // on(LinkActions.addLinkFailure,(state,action) => ({
+      //   ...state, 
+      //   loading:'',
+      //   error:action.error
+      // })),
+  
+      // on(LinkActions.deleteLink, (state) => ({
+      //   ...state, 
+      //   loading:'Deleting Link...' 
+      // })),
+      // on(LinkActions.deleteLinksuccess,(state,action) => ({
+      //   ...state, 
+      //   links: state.links.filter(x=>x.id !== action.id), 
+      //   loading:''})),
+      // on(LinkActions.deleteLinkFailure,(state,action) => ({
+      //   ...state, 
+      //   loading:'',
+      //   error:action.error
+      // })),
+      
+    )
+  

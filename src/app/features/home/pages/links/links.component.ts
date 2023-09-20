@@ -1,11 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
-import { Store, createFeatureSelector, createSelector, select } from '@ngrx/store'
-import { filter, first, map } from 'rxjs/operators'
+import { Component, OnInit } from '@angular/core'
+import { Store, select } from '@ngrx/store'
 import { Link } from '../../store/link/link.model'
-import { Weather } from 'src/app/shared/models/weather'
+import { Station } from 'src/app/shared/models/station'
 import { DataService } from 'src/app/shared/services/data.service'
-import { LinkActions, LinksState,linksSelector, loadSelector} from '../../store/link'
-import { pipe } from 'rxjs'
+import { linksSelector, stationSelector, LinkState, LinkActions } from '../../store/home.store'
 
 
 declare var fitty: any
@@ -15,43 +13,38 @@ declare var fitty: any
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss']
 })
-export class LinksComponent implements OnInit, OnDestroy {
+export class LinksComponent implements OnInit {
 
   links$ = this.store.pipe(select(linksSelector));
-  loading$ = this.store.pipe(select(loadSelector));
-  
+  stations$ = this.store.pipe(select(stationSelector));
 
   time = new Date()
   links: Link[] = []
-  values: Weather[] = []
-  selectedLocation:string
+  stations: Station[] = []
+  selectedStation:string
 
-  constructor(private service: DataService, private store: Store<LinksState>) {
-   
-  }
-
-   ngOnDestroy() {
-
-   }
+  constructor(private service: DataService, private store: Store<LinkState>) {  }
 
   ngOnInit() {
 
-    this.store.dispatch(LinkActions.loadlinks({loading:'loading links'}))
+    this.store.dispatch(LinkActions.loadLinks({loading:'Loading links'}))
+    this.store.dispatch(LinkActions.loadWeather({loading:'Loading stations'}))
 
-    this.service.getItems<Weather>('weather').pipe(
-      first()).subscribe(values => {
-      this.values = values
-      this.selectedLocation = this.values[0].id
-      this.setWeatherFromName(this.selectedLocation)
+    this.stations$.subscribe(stations => {
+      if(stations.length>0)
+      {
+        this.stations = stations
+        this.selectedStation = this.stations[0].id
+      }
     })
-
-    // this.service.getItems<Link>('links-home').pipe(
-    //   first()).subscribe(links => {
-    //   this.links = links
-    // })
-
   }
 
+  onChange(event:any): void {
+    if(this.stations.length>0)
+    {
+      this.setWeatherFromName(event.value)
+    }
+  }
 
   loadWeather(id:String) {
     let element: any
@@ -64,7 +57,7 @@ export class LinksComponent implements OnInit, OnDestroy {
 
   setWeatherFromName(id:string){
     const x = document.getElementsByClassName('weatherwidget-io')
-    const dcName =  this.values.filter(value => {
+    const dcName =  this.stations.filter(value => {
       return value.id === id
     })
 
@@ -73,10 +66,7 @@ export class LinksComponent implements OnInit, OnDestroy {
     this.loadWeather('weatherwidget-io-js')
   }
 
-  onChange(event:any): void {
-    this.setWeatherFromName(event.value)
-  }
-
+ 
   ngAfterViewInit() {
     const clockDiv:any = document.getElementById('clock')
     const spacerDiv:any = document.getElementById('spacer')

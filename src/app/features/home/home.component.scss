@@ -1,11 +1,17 @@
 $header-height: 60px;
 $footer-height: 30px;
 $footer-background-color: #bbb;
+$header-background-color: rgb(17, 72, 138);
 
 header {
+  display: block;
   position: relative;
   height: $header-height;
+}
 
+.banner {
+  background-color: $header-background-color;  
+  color: white;
 }
 
 main {

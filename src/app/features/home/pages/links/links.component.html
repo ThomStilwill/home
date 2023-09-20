@@ -9,10 +9,6 @@
 <div id="links">
   <br/>
 
-  <div class="loading-wrapper">
-    <span >{{(loading$ | async)}}</span>
-  </div>
-
   <ul>
       <li *ngFor="let link of links$ | async">
         <a mat-button target="_blank" href="{{link.href}}">{{link.name}}</a>
@@ -23,9 +19,9 @@
 <div id="weather">
   <mat-form-field appearance="fill" id="locationSelector">
     <mat-label>Weather Location</mat-label>
-    <mat-select [(value)]="selectedLocation" (selectionChange)="onChange($event)" placeholder="Weather Location">
-      <mat-option *ngFor="let v of values" [value]="v.id">
-        {{v.name}}
+    <mat-select [(value)]="selectedStation" (selectionChange)="onChange($event)" placeholder="Weather Location">
+      <mat-option *ngFor="let s of stations" [value]="s.id">
+        {{s.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>

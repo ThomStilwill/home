@@ -7,7 +7,7 @@ import { LinkActions }  from "./link.actions";
 import { Link } from "./link.model";
 
 @Injectable()
-export class LinksEffects{
+export class LinkEffects{
 
     constructor(
         private actions$:Actions, 
@@ -16,45 +16,38 @@ export class LinksEffects{
 
     loadLinks$ = createEffect(() => 
         this.actions$.pipe(
-            ofType(LinkActions.loadlinks),
+            ofType(LinkActions.loadLinks),
+            delay(3000),
             mergeMap(() => 
                 this.service.getItems<Link>('links-home')
                    .pipe(
                     tap(_=>console.log('Success')),
-                    delay(1000),
                     map(links => 
-                        LinkActions.loadlinkssuccess({ loading:'Success',list: links})
+                        LinkActions.loadLinksSuccess({ links: links})
                         )
                     )
                 ),
-                catchError(error => of(LinkActions.loadlinksfailure({loading:'Fail',error})),
+                catchError(error => of(LinkActions.loadLinksFailure({ error})),
                 )
             )
         );
 
-    // addShopping$ = createEffect(() => 
-    //     this.actions$.pipe(
-    //         ofType(actions.AddItem),
-    //         mergeMap(payload => this.service.addShoppingItem(payload.item)
-    //             .pipe(
-    //                     tap(_=>console.log('add')) ,
-    //                     map(() => actions.AddItemSuccess({item:payload.item}))
-    //                  )
-    //             )
-    //             ,catchError(error => of(actions.AddItemFailure({error})))
-    //         )
-    //     );
+        loadWeather$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(LinkActions.loadWeather),
+            delay(3000),
+            mergeMap(() => 
+                this.service.getItems<Link>('weather')
+                   .pipe(
+                    tap(_=>console.log('Success')),
+                    map(links => 
+                        LinkActions.loadWeatherSuccess({ loading:'Stations loaded.', stations: links})
+                        )
+                    )
+                ),
+                catchError(error => of(LinkActions.loadWeatherFailure({loading:'Station Load Fail',error})),
+                )
+            )
+        );
 
-    // deleteShoppingItem$ = createEffect(() => 
-    //     this.actions$.pipe(
-    //         ofType(actions.DeleteItem),
-    //         mergeMap(action => this.service.deleteShoppingItem(action.id)
-    //             .pipe(
-    //                     tap(_=>console.log('delete')),
-    //                     map(() => actions.DeleteItemSuccess({id: action.id}))
-    //                  )
-    //             )
-    //             ,catchError(error => of(actions.DeleteItemFailure({error})))
-    //         )
-    //     );
 }

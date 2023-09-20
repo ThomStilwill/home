@@ -6,7 +6,6 @@
         <input type="text"
                placeholder="{{placeholder}}"
                [value]="_value | date: 'MM/dd/yyyy'"
-               [mask]="mask"
                (input)="onChange($event.target.value)"
                (blur)="onTouched()"
                (keyup)="onChange($event.target.value)">

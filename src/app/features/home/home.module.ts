@@ -12,7 +12,8 @@ import { TestFormComponent } from './components/testform/testform.component';
 import { GuideComponent } from './pages/guide/guide.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { LinksReducer, LinksEffects } from './store/link';
+import { HomeFeature, LinkEffects, ProgressEffects } from './store';
+
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import { LinksReducer, LinksEffects } from './store/link';
     SharedModule,
     CoreModule,
     HomeRoutingModule,
-    // StoreModule.forFeature('links', {links: LinksReducer}),
-    // EffectsModule.forFeature([LinksEffects]),
+    StoreModule.forFeature(HomeFeature),
+    EffectsModule.forFeature([LinkEffects,ProgressEffects]),
 
   ]
 })

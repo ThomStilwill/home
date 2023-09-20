@@ -17,8 +17,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { LinksReducer, LinksEffects } from './features/home/store/link';
-import { AppReducer } from './store/app.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,13 +29,8 @@ import { AppReducer } from './store/app.reducers';
     HomeModule,
     CarlogModule,
     SharedModule.forRoot(),
-    
-    // StoreModule.forRoot({}, {}),
-    // EffectsModule.forRoot([]),
-    
-    StoreModule.forRoot({links: LinksReducer}),
-    EffectsModule.forRoot([LinksEffects]),
-
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
 
     StoreDevtoolsModule.instrument({ 
       name: 'DevTools & Debugging in NgRx',

@@ -7,7 +7,7 @@
         <input type="text"
                placeholder="{{placeholder}}"
                [value]="_value"
-               [mask]='mask'
+
                (input)="onChange($event)"
                (blur)="onTouched()"
                (keyup)="onChange($event.target.value)">

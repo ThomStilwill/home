@@ -1,9 +1,9 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav-content fxLayout="column">
 
-  <header>
+  <header class="banner">
   <mat-toolbar>
-    <mat-toolbar-row class="layout layout-horizontal justify-expand">
+    <mat-toolbar-row class="layout layout-horizontal justify-expand banner">
       <h2 [routerLink]="['/']">{{title}}</h2>
       <div class="layout layout-horizontal justify-right">
         <ul class="layout layout-horizontal">
@@ -15,11 +15,12 @@
 
         <form ngNoForm  role="search" method="get" action="http://www.google.com/search" target="_blank">
           <mat-form-field appearance="fill">
-            <input matInput name="q" type="search" results="5" autosave="AutoSaveValue" placeholder="Search" class="">
+            <input matInput name="q" type="search" results="5" autosave="AutoSaveValue" placeholder="Search">
+            <mat-icon matSuffix>search</mat-icon>
           </mat-form-field>
         </form>
       
-    </div>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
@@ -28,7 +29,7 @@
 </main>
 
 <footer>
-  <div class="footer-left"> Load complete. </div>
+  <div class="footer-left">{{(loading$ | async)}} </div>
   <div class="footer-center">ver {{version}}</div>
   <div class="footer-right">&#169; {{copyrightYear}} Thom Stilwill</div>
 </footer>
