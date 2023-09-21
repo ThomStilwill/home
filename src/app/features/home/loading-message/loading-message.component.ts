@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HomeState, progressSelector } from '../store/home.store';
+import { progressSelector } from '../store/home.store';
+import { HomeState } from "../store/home.state";
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 

@@ -1,9 +1,9 @@
 import { createReducer, on } from "@ngrx/store";
 
 import { ProgressActions } from "./progress.actions";
-import { ProgressState } from "../home.store";
+import { ProgressState } from "./progress.state";
 
-export const initialState: ProgressState = {
+const initialState: ProgressState = {
     message: ''
 };
   

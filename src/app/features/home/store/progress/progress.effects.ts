@@ -14,8 +14,8 @@ export class ProgressEffects{
         () => {
             return this.actions$.pipe(
                 ofType(ProgressActions.showProgress),
-                tap( message => {
-                    console.log(`Show Progress ${message}`)
+                tap( payload => {
+                    console.log(`Show Progress: "${payload.message}"`)
                     //debugger;
                 }))
             },

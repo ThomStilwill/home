@@ -1,7 +1,8 @@
 import { createReducer, on } from "@ngrx/store";
-import { LinkState, LinkActions } from "../home.store";
+import { LinkActions } from "../home.store";
+import { LinkState } from "./link.state";
 
-export const initialState: LinkState = {
+const initialState: LinkState = {
     links: [],
     stations: [],
     error: undefined
@@ -9,34 +10,29 @@ export const initialState: LinkState = {
 
 export const linkReducer =  createReducer(
       initialState,
+
       on(LinkActions.loadLinks, (state) => ({
         ...state, 
-        //loading: state.loading
       })),
       on(LinkActions.loadLinksSuccess,(state,action) => ({
         ...state, 
         links: action.links, 
-        //loading: action.loading
       })),
       on(LinkActions.loadLinksFailure,(state,action) => ({
         ...state, 
         error:action.error,
-        //loading: action.loading
       })),
-  
+
       on(LinkActions.loadWeather, (state) => ({
         ...state, 
-        //loading: state.loading
       })),
       on(LinkActions.loadWeatherSuccess,(state,action) => ({
         ...state, 
         stations: action.stations, 
-        //loading: action.loading
       })),
       on(LinkActions.loadWeatherFailure,(state,action) => ({
         ...state, 
         error:action.error,
-        //loading: action.loading
       })),
   
   

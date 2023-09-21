@@ -3,7 +3,8 @@ import { combineLatest } from 'rxjs'
 import { Store, select } from '@ngrx/store'
 import { Link } from '../../store/link/link.model'
 import { Station } from 'src/app/shared/models/station'
-import { linksSelector, stationSelector, LinkState, LinkActions } from '../../store/home.store'
+import { linksSelector, stationSelector, LinkActions } from '../../store/home.store'
+import { LinkState } from "../../store/link/link.state"
 import { ProgressActions } from '../../store'
 
 declare var fitty: any
@@ -23,24 +24,25 @@ export class LinksComponent implements OnInit {
   stations: Station[] = []
   selectedStation:string
 
-  constructor(private store: Store<LinkState>) {  }
+  constructor(private store: Store<LinkState>) {  
 
-  ngOnInit() {
-   
-    this.store.dispatch(ProgressActions.showProgress({message:'Loading links'}))
+    this.store.dispatch(ProgressActions.showProgress({message:'Loading...'}))
     this.store.dispatch(LinkActions.loadLinks())
     this.store.dispatch(LinkActions.loadWeather())
     
     combineLatest(this.stations$, this.links$).subscribe(
       ([stations, links]) => { 
-        if(stations.length>0)
+        console.log("subscriptions resolved")
+        if(stations.length > 0 && links.length > 0)
         {
           this.stations = stations
           this.selectedStation = this.stations[0].id
+          this.store.dispatch(ProgressActions.showProgress({message:'Done.'}))
         }
-        this.store.dispatch(ProgressActions.showProgress({message:'Done'}))
       })
   }
+
+  ngOnInit() {  }
 
   onChange(event:any): void {
     if(this.stations.length>0)

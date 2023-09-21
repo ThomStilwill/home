@@ -1,26 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store"
-import { Link } from "./link/link.model";
-import { WeatherStation } from "./link/weather.model";
+import { HomeState } from "./home.state";
 
 export { LinkActions } from './link/link.actions';
-
-
-export interface ProgressState {
-  message: string;
-}
-
-export interface LinkState {
-  links: Link[],
-  stations: WeatherStation[]
-  error: any;
-}
-
-export interface HomeState {
-  progress: ProgressState,
-  link: LinkState
-}
-
-
 
 
 const featureSelector = createFeatureSelector<HomeState>('home')
@@ -29,4 +10,4 @@ const selector = (selectorFn: <T>(state: HomeState) => T) => createSelector(feat
 export const linksSelector = createSelector(featureSelector, (state: HomeState) => state.link.links)
 export const stationSelector = createSelector(featureSelector, (state: HomeState) => state.link.stations)
 export const progressSelector = createSelector(featureSelector, (state: HomeState) => state.progress.message)
- 
+export const googleSelector = createSelector(featureSelector, (state: HomeState) => state.google.links) 

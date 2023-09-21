@@ -12,9 +12,8 @@ import { TestFormComponent } from './components/testform/testform.component';
 import { GuideComponent } from './pages/guide/guide.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { HomeFeature, LinkEffects, ProgressEffects } from './store';
+import { HomeFeature, effects } from './store';
 import { LoadingMessageComponent } from './loading-message/loading-message.component';
-
 
 @NgModule({
   declarations: [
@@ -33,7 +32,7 @@ import { LoadingMessageComponent } from './loading-message/loading-message.compo
     CoreModule,
     HomeRoutingModule,
     StoreModule.forFeature(HomeFeature),
-    EffectsModule.forFeature([LinkEffects,ProgressEffects]),
+    EffectsModule.forFeature(effects),
 
   ]
 })

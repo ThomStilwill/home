@@ -17,7 +17,7 @@ export class LinkEffects{
     loadLinks$ = createEffect(() => 
         this.actions$.pipe(
             ofType(LinkActions.loadLinks),
-            delay(3000),
+            //delay(3000),
             concatMap((dump) => 
                 this.service.getItems<Link>('links-home')
                    .pipe(
@@ -32,20 +32,20 @@ export class LinkEffects{
             )
         );
 
-        loadWeather$ = createEffect(() => 
+    loadWeather$ = createEffect(() => 
         this.actions$.pipe(
             ofType(LinkActions.loadWeather),
-            delay(2000),
+            //delay(2000),
             concatMap((dump) => 
                 this.service.getItems<Link>('weather')
                    .pipe(
                     tap(_=>console.log(dump)),
                     map(links => 
-                        LinkActions.loadWeatherSuccess({ loading:'Stations loaded.', stations: links})
+                        LinkActions.loadWeatherSuccess({ stations: links})
                         )
                     )
                 ),
-                catchError(error => of(LinkActions.loadWeatherFailure({loading:'Station Load Fail',error})),
+                catchError(error => of(LinkActions.loadWeatherFailure({error})),
                 )
             )
         );

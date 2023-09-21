@@ -1,38 +1,43 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
-import { Store } from '@ngrx/store'
-import { first } from 'rxjs/operators';
+import { Store, select } from '@ngrx/store'
+import { Observable } from 'rxjs';
 
-import { Title } from '@angular/platform-browser';
-import { Link } from './store/link/link.model';
-import { DataService } from 'src/app/shared/services/data.service';
 import General from 'src/app/shared/utilities/general';
-
-import { HomeState } from './store/home.store'
-
+import { HomeState } from "./store/home.state";
+import { GoogleActions, googleSelector } from './store';
+import { LinkBase } from './store/models/linkbase.model';
+import { AutoUnsubscribe } from 'src/app/shared/decorators/auto.unsubscribe';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-Home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+@AutoUnsubscribe()
 export class HomeComponent implements OnInit, AfterContentInit {
+
+  links$: Observable<LinkBase[]>;
 
   title = 'Stilwill.net';
   version = '2.0';
   copyrightYear = new Date().getFullYear();
-  googleLinks: Link[];
+  googleLinks: LinkBase[];
 
-  constructor(private service: DataService,
-              private store: Store<HomeState>,
-              private titleService: Title) {
+  constructor(private store: Store<HomeState>,
+              private titleService: Title) {  
+
+    this.links$ = this.store.pipe(select(googleSelector));
+
+    this.links$.subscribe(links => {
+      this.googleLinks = links;
+    });
+
+    this.store.dispatch(GoogleActions.loadGoogle());
   }
 
   ngOnInit() {
-
-    this.service.getItems<Link>('links-google').pipe(
-      first()).subscribe(links => {
-      this.googleLinks = links;
-    });
+    
   }
 
   ngAfterContentInit() {
