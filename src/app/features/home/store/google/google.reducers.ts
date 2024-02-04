@@ -1,6 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
-import { GoogleState } from "./google.state";
 import { GoogleActions } from "./google.actions";
+import { LinkBase } from "../models/linkbase.model";
+
+export class GoogleState {
+  links: LinkBase[];
+}
 
 const initialState: GoogleState = {
     links: []
@@ -19,7 +23,6 @@ export const googleReducer =  createReducer(
       on(GoogleActions.loadGoogleFailure,(state,action) => ({
         ...state, 
         error:action.error,
-      })),
-     
+      }))
 )
   

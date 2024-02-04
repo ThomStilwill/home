@@ -6,13 +6,16 @@
     <mat-toolbar-row class="layout layout-horizontal justify-expand banner">
       <h2 [routerLink]="['/']">{{title}}</h2>
       <div class="layout layout-horizontal justify-right">
-        <ul class="layout layout-horizontal">
-            <li><button mat-button [matMenuTriggerFor]="homeMenu" routerLinkActive="active-link">Home</button></li>
-            <li><button mat-button [matMenuTriggerFor]="googleMenu">Google</button></li>
-            <li><button mat-button [matMenuTriggerFor]="managementMenu">Coding</button></li>
-            <li><button mat-button [matMenuTriggerFor]="networkMenu">Network</button></li>
-        </ul>
 
+        <!-- <menu [menus]="menus$|async"  [isRoot]="true"></menu> -->
+        <ul class="layout layout-horizontal justify-right">
+          <li><button mat-button [matMenuTriggerFor]="homeMenu" routerLinkActive="active-link">Home</button></li>
+          <li><button mat-button [matMenuTriggerFor]="googleMenu">Google</button></li>
+          <li><button mat-button [matMenuTriggerFor]="managementMenu">Coding</button></li>
+          <li><button mat-button [matMenuTriggerFor]="networkMenu">Network</button></li>
+        </ul>
+      </div>
+      <!-- <div>  
         <form ngNoForm  role="search" method="get" action="http://www.google.com/search" target="_blank">
           <mat-form-field appearance="fill">
             <input matInput name="q" type="search" results="5" autosave="AutoSaveValue" placeholder="Search">
@@ -20,7 +23,7 @@
           </mat-form-field>
         </form>
       
-      </div>
+      </div> -->
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
@@ -37,6 +40,12 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
+<mat-menu #linkMenu="matMenu">
+  <ng-template matMenuContent let-menu="menu">
+    <a mat-menu-item *ngFor="let link of menu.links | async" href="{{link.href}}" target="_blank">{{link.name}}</a>
+  </ng-template>
+</mat-menu>
+
 <mat-menu #homeMenu="matMenu">
   <a mat-menu-item [routerLink]="['work']">Work</a>
   <a mat-menu-item [routerLink]="['play']">Play</a>
@@ -50,12 +59,16 @@
 </mat-menu>
 
 <mat-menu #googleMenu="matMenu">
-  <a *ngFor="let link of googleLinks">
+  <a *ngFor="let link of links$ | async">
     <a mat-menu-item target="_blank" href="{{link.href}}">{{link.name}}</a>
   </a>
 </mat-menu>
 
 <mat-menu #managementMenu="matMenu">
+  <a *ngFor="let link of links$ | async">
+    <a mat-menu-item target="_blank" href="{{link.href}}">{{link.name}}</a>
+  </a>
+
     <a mat-menu-item href="https://www1.domain.com/controlpanel/foundation/#/" target="_blank">Domain.com</a>
     <a mat-menu-item href="https://www.networksolutions.com" target="_blank">Network Solutions</a>
     <a mat-menu-item href="https://portal.azure.com/#home" target="_blank">Azure Portal</a>
@@ -66,6 +79,11 @@
 </mat-menu>
 
 <mat-menu #networkMenu="matMenu">
-    <a mat-menu-item href="http://sol:5000/" target="_blank">Sol (NAS)</a>
-    <a mat-menu-item href="http://192.168.1.1" target="_blank">UDM</a>
+  
+  <a *ngFor="let menu of menu$ | async">
+    <a mat-menu-item target="_blank" href="{{menu.href}}">{{menu.name}}</a>
+  </a>
+
+    <!-- <a mat-menu-item href="http://sol:5000/" target="_blank">Sol (NAS)</a>
+    <a mat-menu-item href="http://192.168.1.1" target="_blank">UDM</a> -->
 </mat-menu>

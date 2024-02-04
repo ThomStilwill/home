@@ -1,7 +1,9 @@
 import { createReducer, on } from "@ngrx/store";
-
 import { ProgressActions } from "./progress.actions";
-import { ProgressState } from "./progress.state";
+
+export interface ProgressState {
+    message: string;
+  }
 
 const initialState: ProgressState = {
     message: ''

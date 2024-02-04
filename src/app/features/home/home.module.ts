@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HomeFeature, effects } from './store';
 import { LoadingMessageComponent } from './loading-message/loading-message.component';
+import { MenuitemComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoadingMessageComponent } from './loading-message/loading-message.compo
     WorkComponent,
     TestFormComponent,
     GuideComponent,
-    LoadingMessageComponent
+    LoadingMessageComponent,
+    MenuitemComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,6 @@ import { LoadingMessageComponent } from './loading-message/loading-message.compo
     HomeRoutingModule,
     StoreModule.forFeature(HomeFeature),
     EffectsModule.forFeature(effects),
-
   ]
 })
 export class HomeModule { }

@@ -1,6 +1,13 @@
 import { createReducer, on } from "@ngrx/store";
-import { LinkActions } from "../home.store";
-import { LinkState } from "./link.state";
+import { LinkActions } from "../../store";
+import { Link } from "./link.model";
+import { WeatherStation } from "./weather.model";
+
+export interface LinkState {
+  links: Link[];
+  stations: WeatherStation[];
+  error: any;
+}
 
 const initialState: LinkState = {
     links: [],

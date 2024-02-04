@@ -1,20 +1,49 @@
 {
+"menus" : [
+    {
+      "name":"Home",
+      "children": [
+        {"href":"https://www1.domain.com/controlpanel/foundation/#/", "name":"Domain.com"},
+        {"href":"https://www.networksolutions.com", "name":"Network Solutions"},
+        {"href":"https://portal.azure.com/#home", "name":"Azure Portal"},
+        {"href":"https://dashboard.heroku.com/apps", "name":"Heroku"},
+        {"href":"https://c9.io/stilwilltc", "name":"Cloud9"},
+        {"href":"http://phaselineblue.com", "name":"Phaselineblue.com"},
+        {"href":"http://www.hashtagcoding.com/", "name":"#Coding"}
+           ]},
+    {
+      "name":"Google",
+      "children":  [
+        {"href":"https://www.google.com", "name": "Google"},
+        {"href":"https://mail.google.com", "name": "GMail"},
+        {"href":"https://www.google.com/calendar/render?tab:mc", "name": "Calendar"},
+        {"href":"https://docs.google.com/spreadsheets", "name": "Sheets"},
+        {"href":"https://keep.google.com", "name": "Keep"},
+        {"href":"https://drive.google.com", "name": "Drive"},
+        {"href":"https://play.google.com", "name": "Play Store"}
+        ]},
+    {
+      "name":"Network",
+      "children":  [
+        {"href":"http://sol:5000/", "name": "Sol (NAS)"},
+        {"href":"http://192.168.1.1", "name": "UDM"}
+        ]}
+  ],
+
   "links-home": [
     {"href":"https://www.wunderground.com/weather/us/tx/san-antonio", "name":"Weather Underground"},
     {"href":"https://www.eversource.com/clp/outage/outagemap.aspx", "name":"CT Power Outages"},
     {"href":"https://outagemap.cpsenergy.com/", "name":"TX Power Outages"},
     {"divider":"yes"},
-    {"href":"http://www.wfsb.com", "name":"WFSB Channel 3"},
     {"href":"https://foxsanantonio.com/", "name":"Fox 29"},
     {"href":"http://www.plainvillect.com", "name":"Plainville Town Hall"},
     {"href":"http://www.leonvalleytexas.gov", "name":"Leon Valley Town Hall"},
-    {"href":"http://www.plainvilleschools.org/", "name":"Schools"},
     {"divider":"yes"},
     {"href":"http://www.amazon.com/primevideo", "name":"Prime Video"},
     {"href":"http://www.netflix.com", "name":"Netflix"}
   ],
   "links-google": [
-    {"href":"https://mail.google.com", "name": "eMail"},
+    {"href":"https://mail.google.com", "name": "GMail"},
     {"href":"https://www.google.com/calendar/render?tab:mc", "name": "Calendar"},
     {"href":"https://docs.google.com/spreadsheets", "name": "Sheets"},
     {"href":"https://keep.google.com", "name": "Keep"},

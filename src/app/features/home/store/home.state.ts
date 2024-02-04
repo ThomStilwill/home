@@ -1,10 +1,13 @@
-import { ProgressState } from "./progress/progress.state";
-import { LinkState } from "./link/link.state";
-import { GoogleState } from "./google/google.state";
-
+import { 
+  GoogleState, 
+  LinkState, 
+  ProgressState, 
+  MenuState 
+} from ".";
 
 export interface HomeState {
   progress: ProgressState;
   link: LinkState;
   google: GoogleState;
+  menu: MenuState;
 }

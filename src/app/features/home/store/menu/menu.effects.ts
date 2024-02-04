@@ -3,31 +3,30 @@ import { Actions, createEffect, ofType  } from '@ngrx/effects';
 import { of } from "rxjs";
 import { map, catchError, mergeMap, tap, delay, concatMap } from "rxjs/operators";
 import { DataService } from "../../../../shared/services/data.service";
-import { GoogleActions }  from "./google.actions";
-import { LinkBase } from "../models/linkbase.model";
+import { MenuActions } from "./menu.actions";
+import { Menu } from "./menu";
 
 @Injectable()
-export class GoogleEffects{
+export class MenuEffects{
 
     constructor(
         private actions$:Actions, 
         private service: DataService
     ){}
 
-    loadLinks$ = createEffect(() => 
+    loadMenuss$ = createEffect(() => 
         this.actions$.pipe(
-            ofType(GoogleActions.loadGoogle),
-            //delay(3000),
+            ofType(MenuActions.loadMenus),
             concatMap((dump) => 
-                this.service.getItems<LinkBase>('links-google')
+                this.service.getItems<Menu>('menus')
                    .pipe(
-                    //tap(_=>console.log(dump)),
-                    map(links => 
-                        GoogleActions.loadGoogleSuccess({ links: links})
+                    //tap(_=>console.log(`Menus: ${dump}`)),
+                    map(menus => 
+                        MenuActions.loadMenuSuccess({ menus: menus})
                         )
                     )
                 ),
-                catchError(error => of(GoogleActions.loadGoogleFailure({ error})),
+                catchError(error => of(MenuActions.loadMenuFailure({ error})),
                 )
             )
         );

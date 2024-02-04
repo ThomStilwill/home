@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { combineLatest } from 'rxjs'
 import { Store, select } from '@ngrx/store'
-import { Link } from '../../store/link/link.model'
 import { Station } from 'src/app/shared/models/station'
-import { linksSelector, stationSelector, LinkActions } from '../../store/home.store'
-import { LinkState } from "../../store/link/link.state"
-import { ProgressActions } from '../../store'
+import { linksSelector, stationSelector, LinkActions,LinkState, ProgressActions, Link } from '../../store'
 
 declare var fitty: any
 
@@ -32,14 +29,16 @@ export class LinksComponent implements OnInit {
     
     combineLatest(this.stations$, this.links$).subscribe(
       ([stations, links]) => { 
-        console.log("subscriptions resolved")
-        if(stations.length > 0 && links.length > 0)
+        //console.log("subscriptions resolved")
+        if(stations.length > 0 && links && links.length > 0)
         {
           this.stations = stations
           this.selectedStation = this.stations[0].id
+          this.setWeatherFromName(this.selectedStation)
           this.store.dispatch(ProgressActions.showProgress({message:'Done.'}))
         }
       })
+
   }
 
   ngOnInit() {  }
@@ -96,7 +95,7 @@ export class LinksComponent implements OnInit {
     fitty('#time')
     fitty('#day')
     fitty('#date')
+    
   }
-
  
 }

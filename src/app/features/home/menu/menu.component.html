@@ -1,0 +1,43 @@
+
+<ul class="layout layout-horizontal">
+  <li *ngFor="let menu of menus; index as i" >
+      <button  mat-button [matMenuTriggerFor]="managementMenu">
+          {{ menu.name }} 
+      </button>
+  </li>
+</ul>
+
+
+
+<!-- 
+
+  [matMenuTriggerFor]="menu"
+*ngIf="isRoot && node" 
+
+<button
+  *ngIf="!isRootNode"
+  mat-menu-item
+  [matMenuTriggerFor]="menu"
+>
+  {{ node.name }}
+</button>
+<mat-menu #menu="matMenu">
+  <button
+    mat-menu-item
+    *ngIf="isLoading"
+    style="display: flex; justify-content: center; align-items: center"
+  >
+    <mat-spinner mode="indeterminate" diameter="24"></mat-spinner>
+  </button>
+  <ng-container *ngFor="let node of node.links; let i = index">
+    <button mat-menu-item style="padding: 0">
+      <app-menu
+        [trigger]="node"
+        *ngIf="isExpandable(node); else menuItem"
+      ></app-menu>
+    </button>
+    <ng-template #menuItem>
+      <button mat-menu-item>{{ node }}</button>
+    </ng-template>
+  </ng-container>
+</mat-menu> -->

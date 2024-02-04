@@ -1,7 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { Link } from './link.model';
 import { WeatherStation } from './weather.model';
-import { LinkBase } from '../models/linkbase.model';
 
 export const LinkActions = createActionGroup({
     source: "Home",
@@ -20,6 +19,5 @@ export const LinkActions = createActionGroup({
         'DeleteLink' : props<{id: string}>(),
         'DeleteLinksuccess' : props<{id: string}>(),
         'DeleteLinkFailure' : props<{error: Error}>(),
-                
     }
 })

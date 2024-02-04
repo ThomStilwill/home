@@ -55,9 +55,25 @@ mat-toolbar-row {
     }
   }
 
-  .mat-form-field {
+  mat-form-field {
     margin-bottom: 0;
     font-size: 0.7em;
+
+    .mat-input-element {
+      color: slategray;
+    }
+    .mat-form-field-label {
+        color: slategray;
+    }
+    .mat-form-field-underline {
+        background-color: slategray;
+    }
+    .mat-form-field-ripple {
+        background-color: slategray;
+    }
+    .mat-form-field-required-marker {
+        color: slategray;
+    }
   }
 }
 

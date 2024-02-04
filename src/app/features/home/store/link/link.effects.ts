@@ -21,7 +21,7 @@ export class LinkEffects{
             concatMap((dump) => 
                 this.service.getItems<Link>('links-home')
                    .pipe(
-                    tap(_=>console.log(dump)),
+                    //tap(_=>console.log(dump)),
                     map(links => 
                         LinkActions.loadLinksSuccess({ links: links})
                         )
@@ -39,7 +39,7 @@ export class LinkEffects{
             concatMap((dump) => 
                 this.service.getItems<Link>('weather')
                    .pipe(
-                    tap(_=>console.log(dump)),
+                    //tap(_=>console.log(dump)),
                     map(links => 
                         LinkActions.loadWeatherSuccess({ stations: links})
                         )
